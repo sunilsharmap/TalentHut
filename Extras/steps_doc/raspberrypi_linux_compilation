@@ -1,0 +1,68 @@
+******************************************************
+Here is the procedure for compiling and installing
+Linux for RaspberryPi - Karthik M, Embeddedgyan
+		      - Sunil Sharma P, Mirafra
+******************************************************
+---------------------
+*Cross Compiling:*
+---------------------
+*Step 1: Install tool chain:*
+
+git clone https://github.com/raspberrypi/tools
+(If you download this as .zip file, unzip it as root.
+Otherwise it through an error saying " gcc: not found")
+
+Once you have cloned the git repository (i.e. the above command is
+successful), copy the 'tools' directory to a common location. for example,
+I have copied it /opt/raspberry_pi/toolchain/
+
+*Step 2: Export Path and Cross Compiler Prefix:*
+
+export PATH=$PATH:/opt/raspberry_pi/toolchain/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/
+export CROSS_COMPILE=arm-linux-gnueabihf-
+
+*Step 3: Get the Linux Source Code:*
+
+git clone --depth=1 https://github.com/raspberrypi/linux
+
+*Step 4: Build Linux:*
+
+make ARCH=arm O=../kernel-bin/ bcm2709_defconfig
+make ARCH=arm O=../kernel-bin/ menuconfig 
+{sudo apt-get install libncurses-dev if fatal error: curses.h: No such file or directory}
+make ARCH=arm O=../kernel-bin/ -j4 zImage modules dtbs
+
+*Step 5: Install Linux on uSD Card:*
+
+sudo make ARCH=arm O=../kernel-bin/ INSTALL_MOD_PATH=/media/training/root/ modules_install
+sudo scripts/mkknlimg ../kernel-bin/arch/arm/boot/zImage /media/training/boot/kernel.img
+sudo cp ../kernel-bin/arch/arm/boot/dts/*.dtb /media/training/boot/
+sudo cp ../kernel-bin/arch/arm/boot/dts/overlays/*.dtb /media/training/boot/overlays/
+sync
+sudo umount /media/training/boot ; sudo umount /media/training/root ; sudo umount /media/training/SETTINGS
+
+-------------------------------------------
+*Direct Compilation on RaspberryPi Board:*
+-------------------------------------------
+*Step 1: Install tool chain:*
+
+sudo apt­get install bc
+
+*Step 3: Get the Linux Source Code:*
+
+git clone --depth=1 https://github.com/raspberrypi/linux
+
+*Step 4: Build Linux:*
+
+make ARCH=arm O=../kernel-bin/ bcm2709_defconfig
+make O=../kernel-bin -j4  zImage modules dtbs
+
+*Step 5: Install Linux on Board:*
+
+sudo make O=../kernel-bin -j4  modules_install
+cd ../kernel-bin/
+sudo cp arch/arm/boot/dts/*.dtb /boot/
+sudo cp arch/arm/boot/dts/overlays/*.dtb* /boot/overlays/
+sudo cp arch/arm/boot/dts/overlays/README /boot/overlays/
+cd ../linux/
+sudo scripts/mkknlimg ../kernel-bin/arch/arm/boot/zImage /boot/kernel7.img

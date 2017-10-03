@@ -1,0 +1,40 @@
+HowTo: Create Patch Using Diff Command – Linux
+ 
+If you have made some changes to the code and you would like to share these changes with others – the best way is to provide them as a patch file.
+diff is the Linux command line tool that is used for creating patches (sometimes called diffs) and requires that you have two copies of the code: one with your changes and one without.
+This article explains how to create a patch for a single file or for a whole directory using diff and how to apply this patch after.
+Create a Patch for a Single File in Linux
+Let’s say you have some original file.
+You make some changes in it and save the result to a new updated file.
+To create a patch file containing the changes you’ve made, run the following command:
+
+$ diff -u OriginalFile UpdatedFile > PatchFile
+
+Apply a Patch to a File
+A person, who has the original file and wants to apply the changes you’ve made, can patch the original file with the below command:
+
+$ patch OriginalFile < PatchFile
+
+Now the original file has the same content as the updated file.
+Undo a Patch
+To revert a previously applied to a file patch, use this command:
+
+$ patch -R OriginalFile < PatchFile
+
+Create a Patch for a Directory in Linux
+Assume you have a directory with some files and subdirectories inside.
+You recursively copy its content to some new directory and do the necessary updates in it.
+To create a patch file containing the modifications you’ve made, run the following command:
+
+$ diff -ruN OriginalDir UpdatedDir > PatchFile
+
+Apply a Patch to a Directory
+A person, who has the original directory and wants to apply the changes you’ve made, has to copy the original directory and the patch file to some location (e.g. /tmp), go to that location and apply the patch with this command:
+
+$ patch -p0 < PatchFile
+
+Now the original directory contains the content of the updated directory.
+Undo a Patch
+To revert a previously applied to a directory patch, use this command:
+
+$ patch -R -p0 OriginalFile < PatchFile

@@ -1,0 +1,27 @@
+Networking not working in Ubuntu whenever I update libnl-3*
+
+This is common when you work with wpa_supplicant.
+wpa_supplicant requires libnl-3* libraries.
+If you update to libnl-3*, network-manager will ot work.
+Because of lower version of network-manager.
+
+solution is downgrade libnl3 or upgrade network-manager.
+
+Best solution which I did is,
+remove the libnl-3* libraries ex:libnl-3-200 libnl-genl-3-200 libnl-route-3-200 etc.
+
+[unable to access the system may be sudo or root problem, them use live cd for the same.]
+i.e
+boot the system with live ubuntu cd.
+goto try ubuntu.
+mount the linux,
+	  sudo fdisk -l
+	  copy the  linux device may be sda1
+	  sudo mkdir /mnt/temp
+	  sudo mount sda1 /mnt/temp
+	  cd /mnt/temp
+	  sudo rm -rf libnl-*
+
+Reboot the system.
+remove the cd.
+press enter once you remove the cd as is poped up on screen

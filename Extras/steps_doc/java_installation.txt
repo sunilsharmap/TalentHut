@@ -1,0 +1,15 @@
+--------------------------------------------------------------------------
+To install java
+--------------------------------------------------------------------------
+1.7
+* Remove all java
+	sudo apt-get purge openjdk*
+* Install java using below command
+	sudo apt-get install openjdk-7-jre
+----------------------------------------------------
+1.8
+* Link: http://ubuntuhandbook.org/index.php/2015/01/install-openjdk-8-ubuntu-14-04-12-04-lts/
+* sudo add-apt-repository ppa:openjdk-r/ppa
+* sudo apt-get update 
+* sudo apt-get install openjdk-8-jdk
+* java -version

@@ -1,0 +1,26 @@
+Creating Desktop Icon in Linux
+----------------------------------------
+* Create a file in Desktop with name
+	any_name.desktop
+
+* Write these below lines and save. 
+  It will create a desktop icon.
+
+cd ~/Desktop
+touch example_icon.desktop
+
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0                                     # version of an app.
+Name=yEd       	                                # name of an app.
+GenericName=GUI Port Scanner                    # longer name of an app.
+Exec=java -jar /opt/yed-3.11.1/yed.jar          # command used to launch an app.
+Terminal=false                                  # whether an app requires to be run in a terminal.
+Icon=/opt/yed-3.11.1/icons/yicon32.png          # location of icon file.
+Type=Application                                # type.
+Categories=Application;Network;Security;        # categories in which this app should be listed.
+Comment=yEd Graph Editor                        # comment which appears as a tooltip.
+
+Save it. You can see icon with name and image.
+
+Ref:http://xmodulo.com/create-desktop-shortcut-launcher-linux.html

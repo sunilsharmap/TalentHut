@@ -1,0 +1,25 @@
+sunilpatlamane@DEV31:/scratch/uboot_git/u-boot$ export PATH=$PATH:/scratch/rpi_toolchain/tools/arm-bcm2708/arm-bcm2708-linux-gnueabi/bin/      
+
+sunilpatlamane@DEV31:/scratch/uboot_git/u-boot$ echo $PATH
+/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/scratch/rpi_toolchain/tools/arm-bcm2708/arm-bcm2708-linux-gnueabi/bin/
+
+sunilpatlamane@DEV31:/scratch/uboot_git/u-boot$ export CROSS_COMPILE=arm-bcm2708-linux-gnueabi-
+sunilpatlamane@DEV31:/scratch/uboot_git/u-boot$ 
+sunilpatlamane@DEV31:/scratch/uboot_git/u-boot$ 
+sunilpatlamane@DEV31:/scratch/uboot_git/u-boot$ make rpi_2_defconfig
+#
+# configuration written to .config
+#
+sunilpatlamane@DEV31:/scratch/uboot_git/u-boot$ make -j3 
+scripts/kconfig/conf  --silentoldconfig Kconfig
+  CHK     include/config.h
+  GEN     include/autoconf.mk
+  GEN     include/autoconf.mk.dep
+  CHK     include/config/uboot.release
+.
+.
+.
+.
+.
+.
+

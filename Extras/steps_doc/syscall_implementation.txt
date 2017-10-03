@@ -1,0 +1,100 @@
+----------------------------------------------------------------
+Implementation of systemcall in Linux
+----------------------------------------------------------------
+linux-4.7.5$ vi Documentation/adding-syscalls.txt
+	--Linux documentation for syscall implementation
+
+linux-4.7.5$ cd arch/x86/entry/syscalls
+	-- for X86 architecture
+	-- check your system whether it is 32 bit or 64 bit
+	-- open corresponding /tbl file
+	-- syscall_32.tbl or syscall_64.tbl
+	-- add your syscall at the end of file
+	-- ex "390 i386    mirafra           sys_mirafra"
+
+
+linux-4.7.5$ vi include/uapi/asm-generic/unistd.h
+	-- #define __NR_mirafra 290
+	-- __SYSCALL(__NR_mirafra, sys_mirafra)
+
+linux-4.7.5$ mkdir mirafra
+	-- create a dir for your syscall
+linux-4.7.5$ cd mirafra
+	-- write your .c .h files in the new dir created
+	-- in your .c file 
+"""""""""""""""""""""""""""""""""""
+/* The .c code*/
+#include<linux/kernel.h>
+#include<linux/init.h>
+#include<linux/sched.h>
+#include<linux/syscalls.h>
+
+#include "mirafra.h"
+
+//asmlinkage long sys_mirafra(void)
+SYSCALL_DEFINE0(mirafra)
+{
+	printk("MIRAFRA syscall implementation\n");
+	return 0;
+}
+
+"""""""""""""""""""""""""""""""""""
+		-- write your code
+		-- SYSCALL_DEFINEn(mirafra, args_type, args_var, ...)
+		-- n is number of args, args_type-type of arg and 
+		   args_var name of arg 
+		-- SYSCALL_DEFINE is used to define the function
+		-- SYSCALL_DEFINE will add function prototype in 
+		   include/linux/syscalls.h
+	-- create a Makefile in mirafra/
+		-- obj-y += mirafra.o	for buil with kernel
+		-- obj-m += mirafra.o	for kernel module
+		-- obj-$(CONFIG_mirafra) += mirafra.o	through make menuconfig
+
+""""""""""""""""""""""""""""""""""""
+/*Makefile*/
+obj-$(CONFIG_MIRAFRA) += mirafra.o
+""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""
+/*Header file*/
+asmlinkage long sys_mirafra(void);
+""""""""""""""""""""""""""""""""""""
+linux-4.7.5$ vi Makefile
+	-- core-y      += kernel/ certs/ mm/ fs/ ipc/ security/ crypto/ block/ mirafra/
+		-- add your directory entry in root Makefile
+		-- which will add your directory for build
+
+linux-4.7.5$ cd mirafra/
+	-- vi Kconfig
+		config mirafra
+			tristate "Mirafra syscall"
+			default y
+			---help---
+				This is syscall implementation for learning purpose.
+
+Add this Kconfig to parent Kconfig
+linux-4.7.5$ vi Kconfig
+	-- source "mirafra/Kconfig"
+	-- which will make your file visible to make 'menuconfig'
+
+
+linux-4.7.5$ make -j8
+linux-4.7.5$ make modules
+linux-4.7.5$ sudo make modules_install
+linux-4.7.5$ sudo make install
+
+{
+update the grub to get multiple kernel dialog
+edit /etc/defaults/grub
+	GRUB_HIDDEN_TIMEOUT_QUIET=true
+	GRUB_TIMEOUT=10
+}
+
+linux-4.7.5$ sudo reboot
+-----------------------------------------------------------------------------------------
+Ref:
+http://lxr.free-electrons.com/source/Documentation/adding-syscalls.txt
+linux-4.7.5$ vi Documentation/adding-syscalls.txt
+https://lwn.net/Articles/604515/
+-----------------------------------------------------------------------------------------

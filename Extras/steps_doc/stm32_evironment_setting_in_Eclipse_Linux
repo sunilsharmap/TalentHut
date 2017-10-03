@@ -1,0 +1,127 @@
+--------------------------------------------------------------------------
+Description: stm32_evironment_setting_in_Eclipse_Linux
+Author     : Sunil Sharma P
+Date       : 22 Aug, 2016
+--------------------------------------------------------------------------
+
+* Make a directory and save all the files in that directory(all files available at once place).
+mkdir ~/stm32_files
+
+* Download ARM GCC toolchain for Linux(gcc-arm-none-eabi-xxxx-linux.tar.bz2)from below link
+https://launchpad.net/gcc-arm-embedded
+
+* Extract it (right click -> Extract Here)
+tar -xvjf gcc-arm-none-eabi-xxxx-linux.tar.bz2
+
+* Navigate to toolchain directory.
+cd ~/stm32_files/gcc-arm-none-eabi-xxxx-linux/bin/
+
+* List the files and search for "arm-none-eabi-gcc" to confirm proper download and extraction.
+ls
+
+* Set the path (path of bin directory of toolchain)
+echo PATH=$PATH:/home/abcd/stm32_files/gcc-arm-none-eabi-xxxx-linux/bin/
+
+* Check whether path included or not by
+echo $PATH
+
+* Add the same PATH to ".bashrc" file also.
+echo PATH=$PATH:/home/abcd/stm32_files/gcc-arm-none-eabi-xxxx-linux/bin/ >> $HOME/.bashrc/
+
+* Source this file.
+source $HOME/.bashrc/
+
+* Try and confirm environmental variable setting by
+$arm-none-eabi-gcc
+	arm-none-eabi-gcc: fatal error: no input files
+	compilation terminated.
+
+$arm-none-eabi-gcc --version
+	arm-none-eabi-gcc (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-branch revision 237715]
+	Copyright (C) 2015 Free Software Foundation, Inc............
+
+* Download Eclipse (if you have already its fine) from eclipse home. Extract it and Run "eclipse".
+  (Set the workspace as workspaceSTM).
+
+* Open eclipse in sudo mode. As you are going to access root file (USB), eclipse need sudo permission.
+  Navigate to directory where eclipse executable is there in terminal and run eclipse by
+  gksu ./eclipse
+
+* On eclipse, goto Help -> Install New Software....
+	paste "http://gnuarmeclipse.sourceforge.net/updates" this in "Work with:" and press Enter.
+	when "GNU ARM C/C++ Cross Development Tools" appers, click "Select all" -> next -> agree the license -> next and click Finish.
+	Wait for this installation to finish(if any pop-ups, click OK).
+	Eclipse asks for reboot/restart. Allow it to restart.
+
+* When eclipse opens,
+	File -> New -> C Project
+	Give the project name(blinkyLED).
+	In project type, Executable -> STM32F4XX C/C++ Project and in toochain Cross ARM GCC.
+	press Next -> Next -> Next -> Next
+	Browse the toolchain path i.e. ~/stm32_files/gcc-arm-none-eabi-xxxx-linux/bin/ then Finish.
+main.c file will open. This is the main to blink led on STM32F4xx.
+
+* Build the project (find the Hammer symbol in toolbar). Select Release from Hammer icon (by default this will be Debug).
+
+* Navigate in eclipse Window -> Preferences -> General -> Workspace
+  Check the option Save automatically before build.
+
+* Install St-Link v2 on the Linux. Goto the following link
+	https://github.com/texane/stlink
+	Download it as .zip and extract it to ~/stm32_files.
+
+* Navigate to stlink-master directory. Gothrough the README.md. for stlink installation.
+	Install dependencies:
+	sudo apt-get install build-essential
+	sudo apt-get install cmake
+	sudo apt-get install libusb-1.0
+	
+	then in stlink-master directory,
+	$ mkdir build && cd build
+	$ cmake -DCMAKE_BUILD_TYPE=Debug ..
+	$ make
+	$ sudo make install
+
+* Then get the path of "st-flash" by
+	$ whereis st-flash
+	st-flash: /usr/local/bin/st-flash
+	copy this path
+
+* Goto eclipse -> Run (toolbar) -> External tools -> External tools configuration.
+	Select "Program" click new launch configuration(icon). Give the name st-linkv2(which appers in run),
+	location: paste the location you copied(st-flash location), Working directory "${project_loc}/Release"
+	arguments "write ${project_name}.bin 0x8000000". Then apply and Run.
+
+* In project goto Release. .hex, .list. .map files are created.
+
+* Goto Project(toolbar) -> Properties -> C/C++ Build -> Settings
+  Select Cross ARM GNU Create Flash Image -> General -> Output format -> Raw Binary to create .bin file.
+
+* Run debug (Hammer in toolbar).
+
+* Now you can see .bin file in Release.
+
+* Now your binary is ready to flash into the STM32F4xx target.
+
+* Connect STM32F4XX mini usb (make sure that it is mini. micro usb also available) to pc USB port.
+  Confirm the power led and com led are on.
+
+* Goto Run(toolbar) -> External tool -> st-linkv2 to flash the binary to target.
+
+------------------------------------------------------------------------------------------------------------------
+Terminal Execution.
+* Navigate to .bin directory in the terminal.
+
+* Execute the line
+  sudo st-flash write blinkyLED.bin 0x8000000
+  This will flash the code to STM23F4xx target and LED start blinking.
+
+* To erase the "sudo st-flash erase"
+-------------------------------------------------------------------------------------------------------------------
+
+Reference:
+https://startingelectronics.org/tutorials/STM32-microcontrollers/programming-STM32-flash-in-Linux/
+
+Video Link: https://www.youtube.com/watch?v=HKX12hJApZM
+
+_____________________________________END________________________________________________

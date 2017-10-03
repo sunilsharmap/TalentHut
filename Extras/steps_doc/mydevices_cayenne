@@ -1,0 +1,26 @@
+---------------------------------------------------------------------
+Installing cayenne on RPI Board
+Author: Sunil Sharma P
+---------------------------------------------------------------------
+* Goto "https://pimylifeup.com/"
+* Click on "Getting Started with Raspberry Pi Cayenne"
+* "https://pimylifeup.com/raspberry-pi-cayenne/" webpage opens
+* Click on the link: "myDevices Cayenne" in Installing Raspberry Pi Cayenne.
+* New webpage will open "http://www.cayenne-mydevices.com/....."
+* Click "get started" and signup page will open.
+* Fill the details and sign in
+* Step 1 of 3: Choose a device to start a project
+  Select Raspberry Pi
+* Step 2 of 3: Set up your Raspberry Pi, Click next
+* Step 3 of 3: Connect your Raspberry Pi
+  Find OPTION 2: Terminal / SSH
+  Copy for example: "wget https://cayenne.mydevices.com/dl/rpi_ei8k07gw24.sh" press enter.
+  It will start to download the .sh file. Once completed run the .sh with sudo.
+  i.e. for example: "sudo bash rpi_ei8k07gw24.sh -v".
+  
+It will take little time depending on your internet speed.
+
+* Once this is done RPI reboots.
+* Now in any other computer in the same network,
+  login to cayenne to see the RPI(http://www.cayenne-mydevices.com/signin).
+

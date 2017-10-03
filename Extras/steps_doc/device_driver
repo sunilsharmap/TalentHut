@@ -1,0 +1,7 @@
+sudo mknod -m 666 /dev/ex01_simple_dev c 250 0
+
+sudo tail -f /var/log/syslog
+
+sudo insmod ./ex_15_simple_char_drv.ko
+
+sudo rmmod ex_15_simple_char_drv

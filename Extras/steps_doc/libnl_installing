@@ -1,0 +1,20 @@
+...................................................................................................
+LIBNL INSTALLATION
+...................................................................................................
+
+* Download the source code from 
+	"https://github.com/thom311/libnl/releases/download/libnl3_2_27/libnl-3.2.27.tar.gz"
+
+* Extract libnl-3.2.27.tar.gz file using cmd 
+	"tar -xvzf libnl-3.2.27.tar.gz"
+
+* Run configure. i.e ./configure
+
+* If error comes,
+	install bison and flex using apt_get
+
+* Do make
+
+* Copy the "libnl/lib/.libs" .so files to /usr/lib directory 
+	cp -ar libnl/lib/.libs /usr/lib
+

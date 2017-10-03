@@ -1,0 +1,49 @@
+---------------------------------------------------------------------------------------------------
+Compiling the .c file for MSP430 and creating .elf file
+Auther: Sunil Sharma P
+---------------------------------------------------------------------------------------------------
+
+* Open eclipse IDE and create a new c project.
+
+* Give the "project_name" and select project_type as "MSp430 Cross Target Application" and select
+  empty_project.
+
+* Click Next and again click next in "Select Configurations" window.
+
+* The next window will be "MSP430 Target Hardware Selection", select the "target MCU" series and 
+  device from the list.
+
+* Then click Finish.
+
+* Write your code in the .c file and save it.
+
+* Compile the .c file and it'll generate a .elf file.
+
+---------------------------------------------------------------------------------------------------
+Flashing .elf into MSP430 and running the program
+---------------------------------------------------------------------------------------------------
+
+* Open the Terminal and navigate to the directory eclipse's workspace -> your_project -> Debug
+  do 'ls', you will find the .elf file which you generated.
+
+* Connect the MSP430 Launchpad to the PC via mini_usb.
+
+* Enter "mspdebug rf2500" [Note: rf2500 is the driver for eZ430 USB based devices in MSP430] 
+  which will take you to (mspdebug) prompt. MSP430 will be connected over USB through Spy-Bi-wire
+  protocol.
+
+* Type help for different commands.
+
+* Type "prog ****.elf" and hit enter. (prog is the keyword meaning program)
+
+* The .elf will be programmed to the target board i.e.MSP430G2553
+
+* On successful completion, Code would have been downloaded to the Flash Memory
+
+* Now type "run", to execute the code in target.
+
+
+
+
+
+

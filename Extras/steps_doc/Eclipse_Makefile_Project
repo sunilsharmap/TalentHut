@@ -1,0 +1,29 @@
+Adding project to eclipse with Makefile. 
+	Every time eclipse creates its own Makefile. Every time when we add
+	project to eclise, it creates its own Makefile. To avoid this use this
+	methods / steps.
+...................................................................................................
+
+* Open eclipse, goto
+	File -> New -> Makefile project with existing code
+
+* Enter the project name in "Project Name"
+
+* Browse the existing code location / project location "Browse"
+
+* Select the languages (ex: C, C++)
+
+* Select proper toolchain for the project "Toolchain for Indexer Settings" (ex: Linux GCC)
+
+* Then click "Finish"
+
+* Now the project is available at eclipse "Project Explorer"
+...................................................................................................
+
+* Click the project's name in "Project Explorer" and Right Click -> Properties
+
+* Click "C/C++ Build"
+	in "Bukder Setting", uncheck "Use Default Build Command"
+	in "Bild Command", type "make -f /(path of make file in the project)/Makefile"
+	in "Makefile Generetion", uncheck "Generate Makefile Automatically" if checked.
+	

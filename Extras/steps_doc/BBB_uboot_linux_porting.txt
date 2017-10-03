@@ -1,0 +1,13 @@
+------------------------------------------------------------------------
+Description:	Beagle Bone Black - U-Boot and Kernel Porting
+Aythor:		Sunil Sharma P
+Date:		13 Feb, 2017
+------------------------------------------------------------------------
+* Install the dependancies:
+	gcc-arm-linux-gnueabi
+	sudo apt-get install device-tree-compiler
+
+------------------------------------------------------------------------
+Ref:
+http://elinux.org/Building_for_BeagleBone
+------------------------------------------------------------------------

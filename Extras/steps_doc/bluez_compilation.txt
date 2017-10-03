@@ -1,0 +1,76 @@
+--------------------------------------------------------
+Bluez compilation
+Author:	Sunil Sharma P
+Date:	29 Dec, 2016
+--------------------------------------------------------
+
+
+To configure compile environment:
+
+
+    ./configure  --prefix=$PWD/built --enable-experimental  --enable-maintainer-mode
+
+
+
+The first error is:
+
+    checking for DBUS... no
+    configure: error: D-Bus >= 1.6 is required
+
+
+Check D-Bus version:
+
+    $ dbus-daemon --version
+    D-Bus Message Bus Daemon 1.6.18
+    Copyright (C) 2002, 2003 Red Hat, Inc., CodeFactory AB, and others
+
+Fix by:
+
+    apt-get install libdbus-1-dev
+
+
+Next error:
+
+    checking for UDEV... no
+    configure: error: libudev >= 172 is required
+
+Check udev version:
+
+    $ udevd --version
+    204
+
+Fixed by:
+
+    apt-get install libudev-dev
+
+
+Next error:
+
+    checking for ICAL... no
+    configure: error: libical is required
+
+Fixed by:
+
+    apt-get install libical-dev
+
+
+
+Next error:
+
+    checking for readline/readline.h... no
+    configure: error: readline header files are required
+
+Fixed by:
+
+    apt-get install libreadline-dev
+
+
+Next error:
+
+    checking systemd system unit dir... configure: error: systemd system unit directory is required
+
+The problem is more annoyed, by here  and here, Fixed by changing configuring parameters:
+
+    ./configure  --prefix=$PWD/built --enable-experimental  --enable-maintainer-mode --with-systemdsystemunitdir=/lib/systemd/system --with-systemduserunitdir=/usr/lib/systemd
+
+

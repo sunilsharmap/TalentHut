@@ -1,0 +1,16 @@
+For uninstalling the kernel installed from source, run:
+
+sudo rm -rf /lib/modules/kernel_version
+sudo rm -f /boot/vmlinuz-kernel_version*
+sudo rm -f /boot/initrd.img-kernel_version*
+sudo rm -f /boot/config-kernel_version*
+sudo rm -f /boot/System.map-kernel_version*
+
+
+
+Finally, after uninstalling the kernel by either one of the processes
+above, run:
+
+sudo update-grub
+
+to clean the grub menu.

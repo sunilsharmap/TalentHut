@@ -1,0 +1,34 @@
+typedef struct
+{
+        int count;
+        queue q;				//queue of threads waiting on this semaphore
+}Semaphore;
+
+void P(Semaphore s)
+{
+        Disable interrupts;
+        if(s->count>0)
+        {
+                s->count -= 1;
+                Enable interrupts;
+                return;
+        }
+        Add(s->q, currentthread);
+        sleep();
+        Enable interrupts
+}
+
+void V(Semaphore s)
+{
+        Disable interrupts;
+        if(isEmpty(s->q))
+        {
+                s->count += 1;
+        }
+        else
+        {
+                thread = RemoveFirst(s->q);
+                wakeup(thread);			//put thread on the ready queue
+        }
+        Enable interrupts;
+}

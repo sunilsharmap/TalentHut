@@ -1,0 +1,4 @@
+open eclipse in sudo (super user mode)
+
+gksu ./eclipse
+(goto the path where is eclipse executable)

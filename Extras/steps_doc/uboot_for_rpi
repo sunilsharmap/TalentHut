@@ -1,0 +1,68 @@
+--------------------------------------------------------------------------
+u-boot porting for Raspberry-Pi 1 & Raspberry-Pi 2
+Author: Sunil Sharma P
+--------------------------------------------------------------------------
+
+* Download u-boot source-code from below link
+	git clone git://git.denx.de/u-boot.git
+
+* Install ARM-GCC compiler from ubuntu package
+	apt-get install gcc-arm-linux-gnueabi
+
+* Download the tool-chain for RPI
+	git clone git://github.com/raspberrypi/tools
+
+* Navigate through the tools just downloaded and EXPORT the PATH
+	export PATH=$PATH:/...directory where tools downloaded.../tools/arm-bcm2708/arm-bcm2708-linux-gnueabi/bin/ 
+(You can check the PATH by typing: "echo $PATH" , will give the set path as last path)
+
+* Then EXPORT the CROSS_COMPILER
+	export CROSS_COMPILE=arm-bcm2708-linux-gnueabi-
+
+* Navigate to u-boot directory, you have downloaded( step 1) and type
+	make distclean
+
+* Then select the proper configuration to build the source
+	make rpi_defconfig	(use this if board is rpi-1)
+	make rpi_2_defconfig	(use this if board is rpi-2)
+This will create .config file. Ex:
+	#
+	# configuration written to .config
+	#
+
+* Then build the project with .config
+	make
+
+* After successfull build, below files are created
+	u-boot
+	u-boot.bin
+	u-boot.lds
+	u-boot.map
+	u-boot.srec
+
+* NOTE: If any path missing error comes, export the PATH and CROSS_COMPILE once again.
+--------------------------------------------------------------------------
+
+* To make u-boot to work, we need additional firmware files
+	i.e. bootcode.bin, start.elf
+
+* Download bootcode.bin and start.elf from git
+	https://github.com/raspberrypi/firmware/tree/master/boot
+
+* Format the SD-Card to FAT32, Boot partition
+
+* copy bootcode.bin, start.elf, config.txt and u-boot.bin files to sd card
+	mount /dev/sdc1 /mnt/tmp
+	cp u-boot.bin /mnt/tmp/
+	cp bootcode.bin /mnt/tmp/
+	cp start.elf /mnt/tmp/
+	echo 'kernel=u-boot.bin' > /mnt/tmp/config.txt
+(This will create a new config.txt file with contents "kernel=uboot.bin")
+	umount /mnt/tmp
+
+* remove the SD card and use it with RPI board and enjoy the U_BOOT....!!:)
+--------------------------------------------------------------------------
+
+* An excellent reference for the boot process of the Raspberry Pi can be found here:
+	http://wiki.beyondlogic.org/index.php?title=Understanding_RaspberryPi_Boot_Process
+--------------------------------------------------------------------------

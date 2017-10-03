@@ -1,0 +1,26 @@
+--------------------------------------------------------------------------------
+Kernel Compiling Steps
+--------------------------------------------------------------------------------
+
+1. extract linux-x.y.tar.xz (x.y is the version) where you have full permision.
+
+2. copy the .config file from old kernel to new kernel .config file
+	cp /lib/modules/3.2.0-95-generic-pae/build/.config .config
+
+3. goto make menuconfig select the required modules and files, exit. 
+(arrow keys to navigate, space key is to select '*' or 'M')
+	$make menuconfig
+
+4. run Makefile
+	$make
+(it will take few minutes to execute make file, around 30 mins to 1 hour)
+
+5. $make modules
+
+6. $sudo make modules_install
+
+7. $sudo make install
+
+8. Reboot the system. After rebooting system comesup with new kernel
+	$sudo reboot
+

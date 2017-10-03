@@ -1,0 +1,54 @@
+--------------------------------------------------------------------------
+Formating and Partitioning SD-card using FDISK
+Author: Sunil Sharma P
+--------------------------------------------------------------------------
+
+* Insert the SD card and open the terminal, type
+	mount		//to check the mounted devices
+(usually last one will be the latest inserted device /dev/sdXX)
+
+* Start fdisk 
+	sudo fdisk /dev/sdxx	//xx may be 'c', 'c1' etc.
+
+* Just go through the help i.e. m
+
+* First see what and all partitions are available
+	p
+
+* Delete partitions 
+	d
+	partition number
+
+* Checking partitions by 
+	p
+
+* Create a new partition
+	n
+
+	* for primary partition
+		p
+	* number of partitions
+		1
+	* use default for first sector
+	* use default for last sector
+
+* Now make psrtition as boot-partition by activating the partition
+	a
+	partition number
+
+* Check the patition, you will see '*' below Boot, indicating boot-partition
+
+* To change the type of partition like Linux, Linux-swap, ext4, FAT32 etc
+	t
+	partition number
+	( L - list all commands for type selection ex: for FAT32 - c)
+	select required File Type
+
+* To save all the partition details, write it 
+	w
+(It will terminate the fdisk prompt with successfull writing the changes)
+
+* Run the bellow command to bring all changes we made to sd-card in action
+	sudo mkfs.vfat -F32 /dev/sdXX
+(please refer for requied format, how the above cmd changes)
+--------------------------------------------------------------------------

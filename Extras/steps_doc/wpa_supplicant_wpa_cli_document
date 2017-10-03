@@ -1,0 +1,135 @@
+-----------------------------------------------------------------------------------------------------------------------
+steps followed to run wpa_supplicant and wpa_cli
+------------------------------------------------------------------------------------------------------------------------
+wpa_supplicant:
+
+* Download the wpa_supplicant source:
+	 http://hostap.epitest.fi/releases/wpa_supplicant-2.5.tar.gz
+
+* extact the wpa_supplicant-2.5.tar.gz file.
+
+* goto wpa_sullpicant directory, do make.
+
+* make will create 3 .exe files (wpa_supplicant, wpa_cli, wpa_passphrase).
+
+* copy these 3 exes to /sbin directory.
+
+* back_up the wpa_supplicant.conf file and create a new wpa_supplicant.conf file with following content:
+	ap_scan=1
+	ctrl_interface=/var/run/wpa_supplicant	
+	update_confi=1
+	network={
+		ssid="mirafra"
+		scan_ssid=0
+		psk="Skdlt032"
+		key_mgmt=WPA-PSK
+		proto=WPA
+		pairwise=CCMP
+		group=CCMP
+	}
+
+* save this wpa_supplicant.conf in /etc/wpa_supplicat directory.
+
+* run wpa_supplicant exe file with following command:
+	sudo ./wpa_supplicant -B -iwlan2 -Dwext -c/etc/wpa_supplicant.conf (wlan0 is the interface, select your interface by cmd ifconfig).
+output:
+Successfully initialized wpa_supplicant
+$ps -Al | grep wpa.*
+5 S     0  3045     1  0  80   0 -  1422 poll_s ?        00:00:00 wpa_supplicant
+
+* wpa_supplicant will start running as daemon.
+
+................................................................................................................
+
+wpa_cli:
+
+* to run wpa_cli, use the bellow command:
+	./wpa_cli -iwlan0 -p/var/run/wpa_supplicant/wlan0 (for interactive mode, start with next step).
+
+* to scan the n/ws:
+	sudo ./wpa_cli -iwlan0 -p/var/run/wpa_supplicant/wlan0 scan
+OK
+* to list the scaned n/ws:
+	sudo ./wpa_cli -iwlan0 -p/var/run/wpa_supplicant/wlan0 scan_results
+Ex:
+bssid / frequency / signal level / flags / ssid
+b4:75:0e:b4:42:c4	2412	-57	[WPA-PSK-CCMP+TKIP][WPA2-PSK-CCMP+TKIP][ESS]	mirafra
+1c:8e:5c:2d:ca:63	2452	-79	[WPA-PSK-CCMP+TKIP][WPA2-PSK-CCMP+TKIP][ESS]	Stemp-Wireless
+c4:0a:cb:2d:7d:40	2462	-79	[WPA2-PSK-CCMP][ESS]	$T@MW!F!
+c4:0a:cb:25:ae:d0	2437	-85	[WPA2-PSK-CCMP][ESS]	$T@MW!F!
+
+
+* to add a new network:
+	sudo ./wpa_cli -iwlan0 -p/var/run/wpa_supplicant/wlan0 add_network
+(it will give new n/w id like 0 or 1 or 2... say n/w id = 0)
+
+* then set the network:
+	sudo ./wpa_cli -iwlan0 -p/var/run/wpa_supplicant/wlan0 set_network 0 ssid '"mirafra"'
+OK
+	sudo./wpa_cli -iwlan0 -p/var/run/wpa_supplicant/wlan0 set_network 0 psk '"Skdlt032"'
+OK
+* to see the added network:
+	sudo ./wpa_cli -iwlan0 -p/var/run/wpa_supplicant/wlan0 list_network
+output:
+network id / ssid / bssid / flags
+0	mirafra	any	[CURRENT]
+
+* enable the n/w:
+	sudo ./wpa_cli -iwlan0 -p/var/run/wpa_supplicant/wlan0 enable_network 0
+OK
+
+* slect the network:
+	sudo ./wpa_cli -iwlan0 -p/var/run/wpa_supplicant/wlan0 select_network 0
+OK
+
+* save the configuration:
+	sudo ./wpa_cli -iwlan0 -p/var/run/wpa_supplicant/wlan0 save_config
+OK
+
+*to see the status:
+	sudo ./wpa_cli -iwlan0 -p/var/run/wpa_supplicant/wlan0 status
+Ex:
+bssid=b4:75:0e:b4:42:c4
+freq=0
+ssid=mirafra
+id=0
+mode=station
+pairwise_cipher=CCMP
+group_cipher=TKIP
+key_mgmt=WPA2-PSK
+wpa_state=COMPLETED
+address=00:17:7c:50:ec:2e
+(no ip address fiels found)
+
+* in case no ip-addresss field, check dhclient.
+	$dhclient -r
+	$ sudo dhclient wlan0
+
+* now again check the status to see the ip_address
+	sudo ./wpa_cli -iwlan0 -p/var/run/wpa_supplicant/wlan0 status
+Ex:
+bssid=b4:75:0e:b4:42:c4
+freq=0
+ssid=mirafra
+id=0
+mode=station
+pairwise_cipher=CCMP
+group_cipher=TKIP
+key_mgmt=WPA2-PSK
+wpa_state=COMPLETED
+ip_address=192.168.2.123
+address=00:17:7c:50:ec:2e
+
+* to check whether connected or not, just ping to www.google.com by removing all network connections other than the working wifi dongle/adapter.
+	ping www.google.com
+output:
+PING www.google.com (216.58.196.100) 56(84) bytes of data.
+64 bytes from maa03s19-in-f100.1e100.net (216.58.196.100): icmp_req=1 ttl=55 time=85.4 ms
+64 bytes from maa03s19-in-f4.1e100.net (216.58.196.100): icmp_req=2 ttl=55 time=38.3 ms
+64 bytes from maa03s19-in-f100.1e100.net (216.58.196.100): icmp_req=3 ttl=55 time=33.3 ms
+64 bytes from maa03s19-in-f4.1e100.net (216.58.196.100): icmp_req=4 ttl=55 time=35.0 ms
+^C64 bytes from maa03s19-in-f100.1e100.net (216.58.196.100): icmp_req=5 ttl=55 time=42.3 ms
+
+--- www.google.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 20389ms
+rtt min/avg/max/mdev = 33.318/46.901/85.439/19.513 ms

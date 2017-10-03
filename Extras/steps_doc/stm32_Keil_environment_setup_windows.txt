@@ -1,0 +1,91 @@
+--------------------------------------------------------------------------
+Description: stm32_Keil_environment_setup_windows
+Author     : Sunil Sharma P
+Date       : 25 Jan, 2017
+--------------------------------------------------------------------------
+
+* You just need followings to start:
+	. STM32F4 Discovery Board
+	. USB Mini Cable
+	. Keil uVision5 Software (From the link below, go to the Download -> Product Downloads -> MDK-ARM). 
+		After you enter your contact information there you can download the program.
+		link: https://www.keil.com/
+	.STM32 ST-Link Utility
+		This is the utility used to flash the hex/bin to stm-controller
+		From the link below, from Get Software you should give your full name and email information.
+		Then you will get a mail that contains a download link.
+		link: http://www2.st.com/content/st_com/en/products/embedded-software/development-tool-software/stsw-link004.html#
+    
+* Before you install your driver LED (PWR LED) will turn on red stable and another LED (COM LED) will blink red.
+
+* After you install st-link_v2_usbdriver, update your driver.
+	Device Manager -> Other devices -> STM32 STLink
+	Right click and Update Driver Software… and choose Search automatically for updated driver software
+	After updating, driver will be shown in Universal Serial Bus controllers or Universal Serial Bus devices 
+	as a STMicroelectronics STLink dongle
+	Now the COM LED won’t be blink and will be stable red as PWR LED.
+
+* Install Keil uVersion5.
+
+* Open the Keil uVersion5.
+
+* The keil contains some example project to confirm the setup environment.
+	First disable the Read-only protection of the Projects Folder.
+	Keil_v5 -> ARM -> Pack -> Keil -> STM32F4xx_DFP -> [Pack Version (for example 2.8.0) ] -> Right click on Projects Folder and go to 		Properties uncheck Read-only and confirm the changes to the subfolders and files.
+
+* Now in Keil uVision5 open your example project. Project -> Open Project…
+	Keil_v5 -> ARM -> Pack -> Keil -> STM32F4xx_DFP -> [Pack Version (for example 2.8.0) ] -> Projects -> STM32F4-Discovery -> Examples -> 		GPIO -> GPIO_EXTI -> MDK-ARM -> Project (Green Icon File)
+
+* Goto Flash tab in keil and Configure Flash Tool...
+	
+* From Target tab set Xtal (MHz) up to 8.0
+
+* In Debug tab use ST-Link Debugger.
+
+* In Utilities tab uncheck Use Debug Driver and choose ST-Link Debugger
+
+* In Utilities tab, Configure Flash Menu Command, open settings and make sure that in Flash Download tab for 
+	Programming Algorithm you’ve added STM32F4xx Flash.
+
+* Debug tab for Debug Adapter unit ST-Link/V2 is already chosen (whn your board is connected to your PC) and the Port is SW.
+
+* Now open main.c from Example/User Folder in the Project toolbar in the left side.Build you project by pressing F7 or the icon. 
+	And Load it to your board by pressing F8 or the icon.
+
+* while you are loading your project the LD1 LED on your board will blink red and green repeatedly.
+	It shows that the project is loading to your board.
+
+* If all the processes gone correctly you will see the these messages in Build Output window in the bottom.
+	Programming Done.
+	Verify OK.
+	Flash Load Finished At xx:xx:xx
+
+* By pressing the Blue Button on your board you can see the 4 LEDs (between the Black Button and Blue Button)turning on and off.
+
+* This confirms that your setup is ready.
+------------------------------------------------------------------------------------
+For New Project.....
+------------------------------------------------------------------------------------
+* In Keil goto Project Tab->New uVision Project..
+
+* Provide the path(Location where you need to save the project) and file name, click Save.
+
+* A Select Device For Target 'Target 1'... will open.
+	Select your device from list by pressing + in list (+ ARM, + STMicroelectronics)
+
+* Then Press OK.
+
+* Manage Run-Time Environment window will open. Select the needed drivers.
+	while selecting if you get orange colour, press Resolve below to add dependencies.
+
+* Press OK.
+
+* Now you will be Redirected to Keil Project.
+
+* If you want to add some more drivers goto Run-Time Environment by pressing Icon(green square with 4 black dots) in Keil toolbar.
+
+------------------------------------------------------------------------------------
+Reference:
+* https://examplation.wordpress.com/2016/04/14/stm32f4-discovery-with-keil-uvision5-guide-for-beginners/
+------------------------------------------------------------------------------------
+

@@ -1,0 +1,11 @@
+---------------------------------------------------------------------
+How to give commandline arguments in Eclipse
+Author:	Sunil Sharma P
+Date:	29 Dec, 2016
+---------------------------------------------------------------------
+* Build the source
+* Right click on project goto Run As > Run Configurations...
+* Double click C/C++ Application goto Project Debug
+* Right side select (x)=Arguments window
+* Give the commandline arguments in Program argumnets
+* Press Apply and then Run to run the executable with these commandline arguments.

@@ -1,0 +1,29 @@
+----------------------------------
+MSP430 eclipse installation steps
+Auther: Sunil Sharma P
+----------------------------------
+
+1. Download eclipse fron home site
+
+2. Goto "http://xpg.dk/projects/msp430/msp430-eclipse/" and download the "tool-chain"
+   file related to your system.
+
+		OR
+
+3. Under 'Help' tab in Eclipse, select 'Install New Software..'
+
+4. Enter the URL as http://eclipse.xpg.dk
+
+5. Select the 'msp430' as the resource and proceed to install
+
+6. Once Done, Eclipse will prompt for Reboot of the IDE. On Reboot, please ensure that there
+   is a new tab 'MSP430'
+
+7. In the terminal enter the following commands to install the MSP430 ToolChain and Debugger
+
+	sudo apt-get install gcc-msp430
+	sudo apt-get install mspdebug
+
+8. After this step, you can proceed in the normal way in Eclipse IDE to Create the project.
+   During project creation you will prompted to select the appropriate SOC.
+

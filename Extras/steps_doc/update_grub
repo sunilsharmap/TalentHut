@@ -1,0 +1,10 @@
+Updating the grub:
+
+1. Run the following on the command line (Ctrl+Alt+t) to check the os other than wich is currently running:
+
+	sudo os-prober
+
+2. Then you can run bellow command to update grub:
+
+	sudo update-grub
+

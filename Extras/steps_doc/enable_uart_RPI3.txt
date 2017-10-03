@@ -1,0 +1,19 @@
+---------------------------------------------------------------
+Steps to enable Serial Communication on Raspberry Pi 3 Mobel B
+---------------------------------------------------------------
+
+* We need to edit the /boot/config.txt file
+vi /boot/config.txt
+
+* Add the below lines to it *(or uncomment the below lines)
+
+arm_freq=700
+arm_freq_min=700
+core_freq=250
+force_turbo=1
+enable_uart=1
+
+* Reboot the RPI
+reboot
+
+* Now you can find serial communication working.

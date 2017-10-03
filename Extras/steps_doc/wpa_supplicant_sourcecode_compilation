@@ -1,0 +1,62 @@
+--------------------------------------------------------------------------
+wpa_supplicant source_code downloading and building (make)
+Author: Sunil Sharma P
+--------------------------------------------------------------------------
+
+Note:
+	Before altering existing configuration take a backup.
+--------------------------------------------------------------------------
+* Download the source code from elow link:
+	http://hostap.epitest.fi/releases/wpa_supplicant-2.5.tar.gz
+
+* Extract wpa_supplicant-2.5.tar.gz
+	tar -xvzf wpa_supplicant-2.5.tar.gz
+
+* Navigate to wpa_supplicant directory
+	/../wpa_supplicant-2.5/wpa_supplicant
+
+* Copy defconfig to .config
+	cp defconfig .config
+
+* Edit the .config file, search for CONFIG_LIBNL32=y (may be line no. 44)
+and un-comment it (remove # at the start of line).
+Do the neccessary modification required for different configurations.
+	vi .config
+
+* It may ask for some ssl or nl dependecies
+	like fatal error: openssl/ssl.h: No such file or directory
+	or
+	like fatal error: netlink/genl/genl.h: No such file or directory
+errors.
+
+* Then you just solve those dependency issuies.
+Just install those dependancies by the bellow commands:
+	sudo apt-get install libssl-dev
+	sudo apt-get install libnl-3-dev
+
+* libnl-3 is required to build wpa_supplicant.
+	please refer the document "libnl_installing" , how to install libnl-3
+
+* Start building the wpa_supplicant code i.e. make
+	make
+
+* Then again try to build the supplicant, if any other error, fix it by
+looking at the error.
+
+* If make is success, you will get three loadable files i.e. executables
+	wpa_cli
+	wpa_supplicant
+	wpa_passphrase
+--------------------------------------------------------------------------
+Running wpa_supplicant
+--------------------------------------------------------------------------
+
+* Run wpa_supplicant exe file with following command:
+	sudo ./wpa_supplicant -B -iwlan0 -Dwext -c/etc/wpa_supplicant.conf
+(wlan0 is the interface, select your interface by cmd ifconfig).
+
+output:
+Successfully initialized wpa_supplicant
+$ps -Al | grep wpa.*
+5 S   0  3045     1  0  80   0 -  1422 poll_s ?  00:00:00 wpa_supplicant
+--------------------------------------------------------------------------

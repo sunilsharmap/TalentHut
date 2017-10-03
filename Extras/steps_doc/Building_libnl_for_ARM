@@ -1,0 +1,21 @@
+Steps to build "libnl" for ARM
+---------------------------------------------------------------------------------------------------
+
+* Download the libnl source code from
+	"https://github.com/thom311/libnl/releases/download/libnl3_2_27/libnl-3.2.27.tar.gz"
+
+* Extract .tar.gz
+
+* Run the configure file for ARM:
+	sudo ./configure --host=arm-linux-gnueabi CC=arm-linux-gnueabi-gcc
+
+* Build the libnl by running Makefile
+	sudo make CROSS_COMPILE=arm-linux-gnueabi- CC=arm-linux-gnueabi-gcc
+
+* Take the backup of libnl files in /usr/lib/
+
+* Copy the libnl files (including symboic links) to /usr/lib from ../libnl-3.2.27/lib/.libs
+	(i.e. libnl-3.so, libnl-genl-3.so, libnl-idiag-3.so, libnl-nf-3.so, libnl-route-3.so,
+	libnl-xfrm-3.so)
+	sudo cp -ar ../libnl-3.2.27/lib/.libs/libnl-* /usr/lib
+---------------------------------------------------------------------------------------------------
