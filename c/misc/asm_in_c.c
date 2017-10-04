@@ -1,5 +1,5 @@
 #include<stdio.h>
-
+/* This is Architecture dependent. The registers vary wrt architecture. */
 int main()
 {
 	int c = 0;
