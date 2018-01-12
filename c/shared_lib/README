@@ -1,0 +1,39 @@
+A library is a file containing compiled code from various object files stuffed
+into a single file. It may contain a group of functions that are used in a
+particular context. For example, the ‘pthread’ library is used when thread
+related functions are to be used in the program.
+
+Broadly, a library (or Program Library) can be of two types :
+
+    Shared Library
+    Static Library
+
+In this article we will discuss specifically about Shared Libraries.
+
+Shared Libraries
+
+Shared Libraries are the libraries that can be linked to any program at run-time.
+They provide a means to use code that can be loaded anywhere in the memory.
+Once loaded, the shared library code can be used by any number of programs.
+So, this way the size of programs(using shared library) and the memory footprint
+can be kept low as a lot of code is kept common in form of a shared library.
+
+Shared libraries provide modularity to the development environment as the library
+code can be changed, modified and recompiled without having to re-compile the
+applications that use this library. For example, for any change in the pthread
+library code, no change is required in the programs using pthread shared library.
+
+1. Run the following two commands to create a shared library :
+gcc -c -Wall -Werror -fPIC shared.c
+gcc -shared -o libshared.so shared.o
+
+2. Run the following command to compile the main.c:
+gcc -L<path to your shared library> -Wall main.c -o main.out -lshared
+
+3. Run this to tell the loader where is your shared object(.so)
+export LD_LIBRARY_PATH=<path to your shared library>:$LD_LIBRARY_PATH
+
+4. Compilatin will succeseed and executalble will be created.
+
+5. Run the executable by below command
+./main.out
