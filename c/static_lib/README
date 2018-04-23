@@ -1,0 +1,21 @@
+Creating Static Library:
+Library file is "static.c"
+
+create a headerfile with the prototypes of the API's present in static.c
+and name it as "static.h"
+
+create the object file of static.c
+gcc -c static.c -o static.o
+
+for multiple files, create .o files separately then
+with all .o files create a single .a file
+
+crates libstatic.a static library file
+Here prefix "lib" and suffix ".a" is must
+lib<your library name>.a
+ar rcs libstatic.a static.o
+
+crate a main file by including static.h
+gcc main.c -L. -lstatic -o main.out
+
+this will give us the executable
