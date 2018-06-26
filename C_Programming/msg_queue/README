@@ -1,0 +1,14 @@
+Message queue are used to communicate between the processes.
+For more details you can google for the same.
+
+msgq_client.c - msgq client application
+
+msgq_server.c - msgq server application
+
+msg_queue.h   - Interface which contains
+                mtype, mcmd and struct msgqbuf 
+
+Run make all - to build the appications
+               client.out and server.out executables will be created
+
+Runn make clean - to clean the build

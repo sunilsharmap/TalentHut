@@ -1,0 +1,17 @@
+bool test_and_set(bool &mutex) {
+   bool old_mutex = mutex;
+   mutex = true;
+   return old_mutex;
+}
+
+void mutex_init(bool &mutex) {
+   mutex = false;
+}
+
+void mutex_lock(bool &mutex) {
+   while(test_and_set(mutex));
+}
+
+void mutex_unlock(bool &mutex) {
+   mutex = false;
+}

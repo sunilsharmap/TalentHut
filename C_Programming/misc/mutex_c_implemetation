@@ -1,0 +1,17 @@
+void init_mutex( bool &mutex){
+	mutex = FALSE;		//mutex available for lock
+}
+
+void lock_mutex(bool *mutex){
+	if(mutex == TRUE){	//mutex not available for lock
+		sleep();
+		return;
+	}
+	else{
+		mutex = TRUE;
+	}
+}
+
+void unlock_mutex( bool &mutex){
+	mutex = FALSE;
+}
