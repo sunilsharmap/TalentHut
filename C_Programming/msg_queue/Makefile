@@ -1,4 +1,4 @@
-.PHONY: all
+.PHONY: all clean
 
 all:
 	gcc -Wall msgq_server.c -oserver.out
