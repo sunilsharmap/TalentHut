@@ -7,7 +7,7 @@
 
 .PHONY: all clean
 
-CC 			= gcc
+CC 		= gcc
 C_FLAGS 	= -Wall
 
 APP_FILE 	= main.c
