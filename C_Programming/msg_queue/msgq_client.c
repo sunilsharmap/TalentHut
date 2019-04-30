@@ -51,6 +51,10 @@ int main(int argc, char *argv[])
 			if (status < 0) {
 				die("msgsnd failed");
 			}
+		} else if (mbuf.mcmd == CMD_CLIENT_EXIT) {
+			memset(&mbuf, 0, MAXBUFSIZE);
+			printf("\'CMD_CLIENT_EXIT\' command recieved from server, Terminating...\n");
+			break;
 		}
 	}
 	return 0;

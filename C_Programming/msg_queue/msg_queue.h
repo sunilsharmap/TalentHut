@@ -13,8 +13,10 @@
 #define CMD_USERNAME_ACK      0x03
 #define CMD_PASSWORD_ACK      0x04
 
-#define MTYPE_FROM_SERVER     0x05
-#define MTYPE_FROM_CLIENT     0x06
+#define CMD_CLIENT_EXIT       0x05
+
+#define MTYPE_FROM_SERVER     0x06
+#define MTYPE_FROM_CLIENT     0x07
 
 typedef struct {
     long mtype;

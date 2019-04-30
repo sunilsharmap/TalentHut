@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	buflen = sizeof(mbuf.mcmd);
 	status = msgsnd(msgqid, &mbuf, buflen, IPC_NOWAIT);
 	if (status < 0) {
-		die("msgsnd failed");
+		die("msgsnd CMD_SEND_USERNAME failed");
 	}
 
 	memset(&mbuf, 0, sizeof(mbuf));
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 	buflen = sizeof(mbuf.mcmd);
 	status = msgsnd(msgqid, &mbuf, buflen, IPC_NOWAIT);
 	if (status < 0) {
-		die("msgsnd failed");
+		die("msgsnd CMD_SEND_PASSWORD failed");
 	}
 
 	memset(&mbuf, 0, sizeof(mbuf));
@@ -62,6 +62,17 @@ int main(int argc, char *argv[])
 
 	if (mbuf.mcmd == CMD_PASSWORD_ACK) {
 		printf("Client Password: %s\n", mbuf.mtext);
+	}
+
+	/* Terminate the client */
+	printf("\'CMD_CLIENT_EXIT\' command sending to client\n");
+	memset(&mbuf, 0, sizeof(mbuf));
+	mbuf.mtype = MTYPE_FROM_SERVER;
+	mbuf.mcmd = CMD_CLIENT_EXIT;
+	buflen = sizeof(mbuf.mcmd);
+	status = msgsnd(msgqid, &mbuf, buflen, IPC_NOWAIT);
+	if (status < 0) {
+		die("msgsnd CMD_CLIENT_EXIT failed");
 	}
 
 	return 0;
