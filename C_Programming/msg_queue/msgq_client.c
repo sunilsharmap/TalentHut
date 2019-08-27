@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 		die("msgget");
 	}
 	while (1) {
-		/* Request client for username */
+		/* Request from server for username */
 		memset(&mbuf, 0, sizeof(mbuf));
 		status =
 		    msgrcv(msgqid, &mbuf, MAXBUFSIZE, MTYPE_FROM_SERVER,
