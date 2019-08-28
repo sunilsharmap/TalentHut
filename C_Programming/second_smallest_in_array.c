@@ -4,15 +4,15 @@
 
 int main()
 {
-	/* Sorted array */
+    /* Sorted array */
     int arr[] = {1, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     int size = 10;
     int first, second, i = 0;
-	first = second = INT_MIN;
+    first = second = INT_MIN;
 
-	if(size < 2) {
-        printf("Array size is less than two, second smallest doesnot exist\n");
-		return 0;
+    if(size < 2) {
+    printf("Array size is less than two, second smallest doesnot exist\n");
+	return 0;
     }
 	
 	/* while() is to find the same samll numbers in the sorted array */
