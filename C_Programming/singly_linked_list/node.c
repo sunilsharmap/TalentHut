@@ -12,6 +12,7 @@
  *	7.	reverse_list
  *	8.	delete_node_in_list
  *	9.	delete_list
+ *	10.	recursive_reverse_list
  *
  *   Created on: Jun 25, 2018
  *       Author: Sunil Sharma P <sunilsharma.pv@gmail.com>
