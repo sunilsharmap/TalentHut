@@ -8,6 +8,7 @@
 	7.	reverse_list
 	8.	delete_node_in_list
 	9.	delete_list
+	10.	recursive_reverse_list
 	
 * `node.h` is the library interface file to use the library
 
