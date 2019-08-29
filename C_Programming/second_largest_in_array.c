@@ -4,11 +4,11 @@
 
 int main()
 {
-	/* Sorted array */
+    /* Sorted array */
     int arr[] = {9, 9, 8, 7, 6, 5, 4, 3, 2, 1};
     int size = 10;
     int first, second, i = 0;
-	first = second = INT_MAX;
+    first = second = INT_MAX;
 
 	if(size < 2) {
         printf("Array size is less than two, second largest doesnot exist\n");
