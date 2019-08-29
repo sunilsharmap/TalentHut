@@ -17,9 +17,9 @@ INC_PATH 	= -I$(PWD)
 OUT_FILE 	= linkedlist.out
 
 all:
-	clear # Cleare the screen before proceeding
 	@echo ""
-	$(CC) $(C_FLAGS) $(INC_PATH) $(APP_FILE) $(LIB_FILE) -o $(OUT_FILE)
+	@$(CC) $(C_FLAGS) $(INC_PATH) $(APP_FILE) $(LIB_FILE) -o $(OUT_FILE)
+	@echo "Make Successfull run ./$(OUT_FILE)"
 	@echo ""
 
 clean:

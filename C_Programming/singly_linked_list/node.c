@@ -164,6 +164,37 @@ void reverse_list(node_t ** head)
 
 /*---------------------------------------------------------------------------*/
 
+/**
+ * @brief static helper function to reverse linked list recursively
+ *
+ * @param head head of the node
+ *
+ * @return updated head will be returned
+ */
+static node_t * recursive_reverse_list_helper(node_t * head)
+{
+	if(head->next == NULL) {
+		return head;
+	}
+	else {
+		node_t * new_head = recursive_reverse_list_helper(head->next);
+		head->next->next = head;
+		head->next = NULL;
+		return new_head;
+	}
+}
+
+/*---------------------------------------------------------------------------*/
+
+void recursive_reverse_list(node_t **head)
+{
+	node_t * update_head = NULL;
+	update_head = recursive_reverse_list_helper(*head);
+	*head = update_head;
+}
+
+/*---------------------------------------------------------------------------*/
+
 int32_t delete_node_in_list(node_t ** head, int32_t key)
 {
 	node_t * current = NULL;

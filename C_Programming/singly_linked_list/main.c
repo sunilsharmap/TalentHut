@@ -84,6 +84,11 @@ int main(int argc, char* argv[])
 	print_list(head);
 	printf("\n");
 
+	recursive_reverse_list(&head);
+	printf("After reversing recursively\n");
+	print_list(head);
+	printf("\n");
+
 	/* delete the complete list */
 	delete_list(&head);
 

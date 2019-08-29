@@ -88,6 +88,15 @@ uint32_t find_element_in_list(node_t * head, int32_t data);
 void reverse_list(node_t ** head);
 
 /**
+ * @brief delete the complete list
+ *
+ * @param head head of the list
+ *
+ * @return void
+ */
+void recursive_reverse_list(node_t ** head);
+
+/**
  * @brief delete a given node from the list
  *
  * @param head head of the list
