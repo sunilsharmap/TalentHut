@@ -24,6 +24,8 @@
 
 pthread_mutex_t count_mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t condition_var = PTHREAD_COND_INITIALIZER;
+
+/* Shared resource */
 int count = 0;
 
 /* Print odd numbers */
