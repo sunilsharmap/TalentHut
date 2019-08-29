@@ -176,12 +176,11 @@ static node_t * recursive_reverse_list_helper(node_t * head)
 	if(head->next == NULL) {
 		return head;
 	}
-	else {
-		node_t * new_head = recursive_reverse_list_helper(head->next);
-		head->next->next = head;
-		head->next = NULL;
-		return new_head;
-	}
+
+	node_t * new_head = recursive_reverse_list_helper(head->next);
+	head->next->next = head;
+	head->next = NULL;
+	return new_head;
 }
 
 /*---------------------------------------------------------------------------*/
