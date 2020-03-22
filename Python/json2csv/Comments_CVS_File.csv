@@ -1,0 +1,61 @@
+id,type,author_id,body,location,url
+777641266532,Comment,270651772,"Failure to load report for 10/01/2019.  Reports on files failed in the last 24 hours.
+
+Below are the failed invoices. Any files without a status have failed in splitting, please research those too.
+
+
+EVOLVEIP  / NEXTGEN.SUMMARY.9999.12208MR.84220304.20190901.EIP01.csv / 12208MR /  9/1/2019  /  Pre Processing Failed
+
+COMCAST  / FPPRINT_PROD_BPH_MAY_M30_420828460_0.cabs.bdt / BPH /  5/30/2019  /  Loading Failed
+
+COMCAST  / FPPRINT_PROD_BPH_6034170034034_MAR_M18_417614215_0.cabs.bdt / 6034170034034 /  3/18/2019  /  Loading Failed","Bengaluru, KA, India",https://razorsight.zendesk.com/api/v2/attachments/370215274232.json
+780731146831,Comment,272553607,"Hi,
+
+COMCAST / FPPRINT_PROD_BPH_MAY_M30_420828460_0.cabs.bdt / BPH / 5/30/2019 / Loading Failed
+COMCAST / FPPRINT_PROD_BPH_6034170034034_MAR_M18_417614215_0.cabs.bdt / 6034170034034 / 3/18/2019 / Loading Failed
+Above files failed to load due to The mandatory record 40050500 is missing.
+
+EVOLVEIP / NEXTGEN.SUMMARY.9999.12208MR.84220304.20190901.EIP01.csv / 12208MR / 9/1/2019 / Pre Processing Failed
+can you provide the source file (detail and summary) for the above invoice.
+
+Regards,
+Siddesh Rumale","Bengaluru, KA, India", NA 
+780732873011,Comment,270651772,"Siddesh,
+
+Attached Nextgen detail and summary files for EVOLVEIP / NEXTGEN.SUMMARY.9999.12208MR.84220304.20190901.EIP01.csv / 12208MR / 9/1/2019 / Pre Processing Failed
+
+Thanks
+Arun G","Bengaluru, KA, India",https://razorsight.zendesk.com/api/v2/attachments/370257344711.json
+780867378131,Comment,272553607,"Hi,
+
+below nextgen invoice failed due to com.razorsight.razoretl.common.exception.RazorETLException: Error setting up Circuit Detail
+In the detail file, the EC Circuit id is blank for mrc charge group.
+
+Regards,
+Siddesh Rumale","Bengaluru, KA, India", NA 
+781525186492,Comment,270651772,"Hi Team,
+
+Please look in to below TPS notes and do the needful.
+
+
+Thanks,
+Ranjith.R","Bengaluru, KA, India", NA 
+786672330052,Comment,290892487,"Hi,
+
+Please find attached output
+
+Regards,
+swathi.e","Bengaluru, KA, India",https://razorsight.zendesk.com/api/v2/attachments/370370257771.json
+786800342712,Comment,270651772,"Hi Team,
+
+Attached EVOLVEIP file has been reloaded in IM, Please look into below TPS notes for COMCAST files and do the needful.
+
+TPS NOTES:
+
+COMCAST / FPPRINT_PROD_BPH_MAY_M30_420828460_0.cabs.bdt / BPH / 5/30/2019 / Loading Failed
+COMCAST / FPPRINT_PROD_BPH_6034170034034_MAR_M18_417614215_0.cabs.bdt / 6034170034034 / 3/18/2019 / Loading Failed
+Above files failed to load due to The mandatory record 40050500 is missing.
+
+
+Regards,
+Kiran Kumar BV.","Bengaluru, KA, India", NA 
