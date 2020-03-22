@@ -1,0 +1,299 @@
+{
+  "comments": [
+    {
+      "id": 777641266532,
+      "type": "Comment",
+      "author_id": 270651772,
+      "body": "Failure to load report for 10/01/2019.  Reports on files failed in the last 24 hours.\n\nBelow are the failed invoices. Any files without a status have failed in splitting, please research those too.\n\n\nEVOLVEIP  / NEXTGEN.SUMMARY.9999.12208MR.84220304.20190901.EIP01.csv / 12208MR /  9/1/2019  /  Pre Processing Failed\n\nCOMCAST  / FPPRINT_PROD_BPH_MAY_M30_420828460_0.cabs.bdt / BPH /  5/30/2019  /  Loading Failed\n\nCOMCAST  / FPPRINT_PROD_BPH_6034170034034_MAR_M18_417614215_0.cabs.bdt / 6034170034034 /  3/18/2019  /  Loading Failed",
+      "html_body": "<div class=\"zd-comment\" dir=\"auto\"><p dir=\"auto\">Failure to load report for 10/01/2019.  Reports on files failed in the last 24 hours.</p>\n\n<p dir=\"auto\">Below are the failed invoices. Any files without a status have failed in splitting, please research those too.</p>\n\n<p dir=\"auto\">EVOLVEIP  / NEXTGEN.SUMMARY.9999.12208MR.84220304.20190901.EIP01.csv / 12208MR /  9/1/2019  /  Pre Processing Failed</p>\n\n<p dir=\"auto\">COMCAST  / FPPRINT_PROD_BPH_MAY_M30_420828460_0.cabs.bdt / BPH /  5/30/2019  /  Loading Failed</p>\n\n<p dir=\"auto\">COMCAST  / FPPRINT_PROD_BPH_6034170034034_MAR_M18_417614215_0.cabs.bdt / 6034170034034 /  3/18/2019  /  Loading Failed</p></div>",
+      "plain_body": "Failure to load report for 10/01/2019.  Reports on files failed in the last 24 hours. \n\n Below are the failed invoices. Any files without a status have failed in splitting, please research those too. \n\n EVOLVEIP  / NEXTGEN.SUMMARY.9999.12208MR.84220304.20190901.EIP01.csv / 12208MR /  9/1/2019  /  Pre Processing Failed \n\n COMCAST  / FPPRINT_PROD_BPH_MAY_M30_420828460_0.cabs.bdt / BPH /  5/30/2019  /  Loading Failed \n\n COMCAST  / FPPRINT_PROD_BPH_6034170034034_MAR_M18_417614215_0.cabs.bdt / 6034170034034 /  3/18/2019  /  Loading Failed",
+      "public": true,
+      "attachments": [
+        {
+          "url": "https://razorsight.zendesk.com/api/v2/attachments/370215274232.json",
+          "id": 370215274232,
+          "file_name": "FailedToLoad.xlsx",
+          "content_url": "https://razorsight.zendesk.com/attachments/token/sxYArCPNCH9WtltC59cgi2V1N/?name=FailedToLoad.xlsx",
+          "mapped_content_url": "https://razorsight.zendesk.com/attachments/token/sxYArCPNCH9WtltC59cgi2V1N/?name=FailedToLoad.xlsx",
+          "content_type": "application/octet-stream",
+          "size": 11146,
+          "width": null,
+          "height": null,
+          "inline": false,
+          "deleted": false,
+          "thumbnails": []
+        }
+      ],
+      "audit_id": 777641266412,
+      "via": {
+        "channel": "email",
+        "source": {
+          "from": {
+            "address": "ris_analyticsproductionservices@synchronoss.com",
+            "name": "APS",
+            "original_recipients": [
+              "ris_analyticsproductionservices@synchronoss.com",
+              "support@razorsight.zendesk.com"
+            ]
+          },
+          "to": {
+            "name": "Ticketing System",
+            "address": "support@razorsight.zendesk.com"
+          },
+          "rel": null
+        }
+      },
+      "created_at": "2019-10-01T04:12:05Z",
+      "metadata": {
+        "system": {
+          "message_id": "<811e017fdbf73e16e070449423b198fb@vastemp07p>",
+          "client": "AutoMate",
+          "ip_address": "172.31.232.158",
+          "raw_email_identifier": "110139/ce8089ad-1389-4b61-b155-a9b7de17689f.eml",
+          "json_email_identifier": "110139/ce8089ad-1389-4b61-b155-a9b7de17689f.json",
+          "location": "Bengaluru, KA, India",
+          "latitude": 12.9771,
+          "longitude": 77.5871
+        },
+        "custom": {},
+        "suspension_type_id": null
+      }
+    },
+    {
+      "id": 780731146831,
+      "type": "Comment",
+      "author_id": 272553607,
+      "body": "Hi,\n\nCOMCAST / FPPRINT_PROD_BPH_MAY_M30_420828460_0.cabs.bdt / BPH / 5/30/2019 / Loading Failed\nCOMCAST / FPPRINT_PROD_BPH_6034170034034_MAR_M18_417614215_0.cabs.bdt / 6034170034034 / 3/18/2019 / Loading Failed\nAbove files failed to load due to The mandatory record 40050500 is missing.\n\nEVOLVEIP / NEXTGEN.SUMMARY.9999.12208MR.84220304.20190901.EIP01.csv / 12208MR / 9/1/2019 / Pre Processing Failed\ncan you provide the source file (detail and summary) for the above invoice.\n\nRegards,\nSiddesh Rumale",
+      "html_body": "<div class=\"zd-comment\" dir=\"auto\">Hi,<br><br>COMCAST / FPPRINT_PROD_BPH_MAY_M30_420828460_0.cabs.bdt / BPH / 5/30/2019 / Loading Failed<br>COMCAST / FPPRINT_PROD_BPH_6034170034034_MAR_M18_417614215_0.cabs.bdt / 6034170034034 / 3/18/2019 / Loading Failed<br>Above files failed to load due to The mandatory record 40050500 is missing.<br><br>EVOLVEIP / NEXTGEN.SUMMARY.9999.12208MR.84220304.20190901.EIP01.csv / 12208MR / 9/1/2019 / Pre Processing Failed<br>can you provide the source file (detail and summary) for the above invoice.<br><br>Regards,<br>Siddesh Rumale<br><br></div>",
+      "plain_body": "Hi,\n\nCOMCAST / FPPRINT_PROD_BPH_MAY_M30_420828460_0.cabs.bdt / BPH / 5/30/2019 / Loading Failed\nCOMCAST / FPPRINT_PROD_BPH_6034170034034_MAR_M18_417614215_0.cabs.bdt / 6034170034034 / 3/18/2019 / Loading Failed\nAbove files failed to load due to The mandatory record 40050500 is missing.\n\nEVOLVEIP / NEXTGEN.SUMMARY.9999.12208MR.84220304.20190901.EIP01.csv / 12208MR / 9/1/2019 / Pre Processing Failed\ncan you provide the source file (detail and summary) for the above invoice.\n\nRegards,\nSiddesh Rumale",
+      "public": false,
+      "attachments": [],
+      "audit_id": 780731146751,
+      "via": {
+        "channel": "web",
+        "source": {
+          "from": {},
+          "to": {},
+          "rel": null
+        }
+      },
+      "created_at": "2019-10-04T07:32:22Z",
+      "metadata": {
+        "system": {
+          "client": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
+          "ip_address": "103.231.232.234",
+          "location": "Bengaluru, KA, India",
+          "latitude": 12.9771,
+          "longitude": 77.5871
+        },
+        "custom": {}
+      }
+    },
+    {
+      "id": 780732873011,
+      "type": "Comment",
+      "author_id": 270651772,
+      "body": "Siddesh,\n\nAttached Nextgen detail and summary files for EVOLVEIP / NEXTGEN.SUMMARY.9999.12208MR.84220304.20190901.EIP01.csv / 12208MR / 9/1/2019 / Pre Processing Failed\n\nThanks\nArun G",
+      "html_body": "<div class=\"zd-comment\" dir=\"auto\">Siddesh,<br><br>Attached Nextgen detail and summary files for EVOLVEIP / NEXTGEN.SUMMARY.9999.12208MR.84220304.20190901.EIP01.csv / 12208MR / 9/1/2019 / Pre Processing Failed<br><br>Thanks<br>Arun G<br></div>",
+      "plain_body": "Siddesh,\n\nAttached Nextgen detail and summary files for EVOLVEIP / NEXTGEN.SUMMARY.9999.12208MR.84220304.20190901.EIP01.csv / 12208MR / 9/1/2019 / Pre Processing Failed\n\nThanks\nArun G",
+      "public": false,
+      "attachments": [
+        {
+          "url": "https://razorsight.zendesk.com/api/v2/attachments/370257344711.json",
+          "id": 370257344711,
+          "file_name": "NEXTGEN.DETAIL.9999.12208MR.84220304.20190901.EIP01.csv",
+          "content_url": "https://razorsight.zendesk.com/attachments/token/A66un9bo3Xn7L5cLnNkKzFqdL/?name=NEXTGEN.DETAIL.9999.12208MR.84220304.20190901.EIP01.csv",
+          "mapped_content_url": "https://razorsight.zendesk.com/attachments/token/A66un9bo3Xn7L5cLnNkKzFqdL/?name=NEXTGEN.DETAIL.9999.12208MR.84220304.20190901.EIP01.csv",
+          "content_type": "application/vnd.ms-excel",
+          "size": 102509,
+          "width": null,
+          "height": null,
+          "inline": false,
+          "deleted": false,
+          "thumbnails": []
+        },
+        {
+          "url": "https://razorsight.zendesk.com/api/v2/attachments/370308993532.json",
+          "id": 370308993532,
+          "file_name": "NEXTGEN.SUMMARY.9999.12208MR.84220304.20190901.EIP01.csv",
+          "content_url": "https://razorsight.zendesk.com/attachments/token/YJKTROWqK9UzlgaiwVPp6QM2B/?name=NEXTGEN.SUMMARY.9999.12208MR.84220304.20190901.EIP01.csv",
+          "mapped_content_url": "https://razorsight.zendesk.com/attachments/token/YJKTROWqK9UzlgaiwVPp6QM2B/?name=NEXTGEN.SUMMARY.9999.12208MR.84220304.20190901.EIP01.csv",
+          "content_type": "application/vnd.ms-excel",
+          "size": 697,
+          "width": null,
+          "height": null,
+          "inline": false,
+          "deleted": false,
+          "thumbnails": []
+        }
+      ],
+      "audit_id": 780732872971,
+      "via": {
+        "channel": "web",
+        "source": {
+          "from": {},
+          "to": {},
+          "rel": null
+        }
+      },
+      "created_at": "2019-10-04T07:35:54Z",
+      "metadata": {
+        "system": {
+          "client": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
+          "ip_address": "103.231.232.100",
+          "location": "Bengaluru, KA, India",
+          "latitude": 12.9771,
+          "longitude": 77.5871
+        },
+        "custom": {}
+      }
+    },
+    {
+      "id": 780867378131,
+      "type": "Comment",
+      "author_id": 272553607,
+      "body": "Hi,\n\nbelow nextgen invoice failed due to com.razorsight.razoretl.common.exception.RazorETLException: Error setting up Circuit Detail\nIn the detail file, the EC Circuit id is blank for mrc charge group.\n\nRegards,\nSiddesh Rumale",
+      "html_body": "<div class=\"zd-comment\" dir=\"auto\">Hi,<br><br>below nextgen invoice failed due to com.razorsight.razoretl.common.exception.RazorETLException: Error setting up Circuit Detail<br>In the detail file, the EC Circuit id is blank for mrc charge group.&nbsp;<br><br>Regards,<br>Siddesh Rumale<br><br></div>",
+      "plain_body": "Hi,\n\nbelow nextgen invoice failed due to com.razorsight.razoretl.common.exception.RazorETLException: Error setting up Circuit Detail\nIn the detail file, the EC Circuit id is blank for mrc charge group.&nbsp;\n\nRegards,\nSiddesh Rumale",
+      "public": false,
+      "attachments": [],
+      "audit_id": 780867378111,
+      "via": {
+        "channel": "web",
+        "source": {
+          "from": {},
+          "to": {},
+          "rel": null
+        }
+      },
+      "created_at": "2019-10-04T11:10:32Z",
+      "metadata": {
+        "system": {
+          "client": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
+          "ip_address": "103.231.232.234",
+          "location": "Bengaluru, KA, India",
+          "latitude": 12.9771,
+          "longitude": 77.5871
+        },
+        "custom": {}
+      }
+    },
+    {
+      "id": 781525186492,
+      "type": "Comment",
+      "author_id": 270651772,
+      "body": "Hi Team,\n\nPlease look in to below TPS notes and do the needful.\n\n\nThanks,\nRanjith.R",
+      "html_body": "<div class=\"zd-comment\" dir=\"auto\">Hi Team,<br><br>Please look in to below TPS notes and do the needful.<br><br><br>Thanks,<br>Ranjith.R<br></div>",
+      "plain_body": "Hi Team,\n\nPlease look in to below TPS notes and do the needful.\n\n\nThanks,\nRanjith.R",
+      "public": false,
+      "attachments": [],
+      "audit_id": 781525186352,
+      "via": {
+        "channel": "web",
+        "source": {
+          "from": {},
+          "to": {},
+          "rel": null
+        }
+      },
+      "created_at": "2019-10-04T11:16:22Z",
+      "metadata": {
+        "system": {
+          "client": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
+          "ip_address": "103.231.232.236",
+          "location": "Bengaluru, KA, India",
+          "latitude": 12.9771,
+          "longitude": 77.5871
+        },
+        "custom": {}
+      }
+    },
+    {
+      "id": 786672330052,
+      "type": "Comment",
+      "author_id": 290892487,
+      "body": "Hi,\n\nPlease find attached output\n\nRegards,\nswathi.e",
+      "html_body": "<div class=\"zd-comment\" dir=\"auto\">Hi,<br><br>Please find attached output<br><br>Regards,<br>swathi.e<br></div>",
+      "plain_body": "Hi,\n\nPlease find attached output\n\nRegards,\nswathi.e",
+      "public": false,
+      "attachments": [
+        {
+          "url": "https://razorsight.zendesk.com/api/v2/attachments/370370257771.json",
+          "id": 370370257771,
+          "file_name": "12208MR.rar",
+          "content_url": "https://razorsight.zendesk.com/attachments/token/0iNXar5cfQcGQF6zkqOwloSvg/?name=12208MR.rar",
+          "mapped_content_url": "https://razorsight.zendesk.com/attachments/token/0iNXar5cfQcGQF6zkqOwloSvg/?name=12208MR.rar",
+          "content_type": "application/x-rar",
+          "size": 9905,
+          "width": null,
+          "height": null,
+          "inline": false,
+          "deleted": false,
+          "thumbnails": []
+        }
+      ],
+      "audit_id": 786672329972,
+      "via": {
+        "channel": "web",
+        "source": {
+          "from": {},
+          "to": {},
+          "rel": null
+        }
+      },
+      "created_at": "2019-10-09T12:08:45Z",
+      "metadata": {
+        "system": {
+          "client": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
+          "ip_address": "103.231.232.4",
+          "location": "Bengaluru, KA, India",
+          "latitude": 12.9771,
+          "longitude": 77.5871
+        },
+        "custom": {}
+      }
+    },
+    {
+      "id": 786800342712,
+      "type": "Comment",
+      "author_id": 270651772,
+      "body": "Hi Team,\n\nAttached EVOLVEIP file has been reloaded in IM, Please look into below TPS notes for COMCAST files and do the needful.\n\nTPS NOTES:\n\nCOMCAST / FPPRINT_PROD_BPH_MAY_M30_420828460_0.cabs.bdt / BPH / 5/30/2019 / Loading Failed\nCOMCAST / FPPRINT_PROD_BPH_6034170034034_MAR_M18_417614215_0.cabs.bdt / 6034170034034 / 3/18/2019 / Loading Failed\nAbove files failed to load due to The mandatory record 40050500 is missing.\n\n\nRegards,\nKiran Kumar BV.",
+      "html_body": "<div class=\"zd-comment\" dir=\"auto\">Hi Team,<br><br>Attached EVOLVEIP file has been reloaded in IM, Please look into below TPS notes for COMCAST files and do the needful.<br><br>TPS NOTES:<br><br>COMCAST / FPPRINT_PROD_BPH_MAY_M30_420828460_0.cabs.bdt / BPH / 5/30/2019 / Loading Failed<br>COMCAST / FPPRINT_PROD_BPH_6034170034034_MAR_M18_417614215_0.cabs.bdt / 6034170034034 / 3/18/2019 / Loading Failed<br>Above files failed to load due to The mandatory record 40050500 is missing.<br><br><br>Regards,<br>Kiran Kumar BV.<br></div>",
+      "plain_body": "Hi Team,\n\nAttached EVOLVEIP file has been reloaded in IM, Please look into below TPS notes for COMCAST files and do the needful.\n\nTPS NOTES:\n\nCOMCAST / FPPRINT_PROD_BPH_MAY_M30_420828460_0.cabs.bdt / BPH / 5/30/2019 / Loading Failed\nCOMCAST / FPPRINT_PROD_BPH_6034170034034_MAR_M18_417614215_0.cabs.bdt / 6034170034034 / 3/18/2019 / Loading Failed\nAbove files failed to load due to The mandatory record 40050500 is missing.\n\n\nRegards,\nKiran Kumar BV.",
+      "public": false,
+      "attachments": [],
+      "audit_id": 786800342512,
+      "via": {
+        "channel": "web",
+        "source": {
+          "from": {},
+          "to": {},
+          "rel": null
+        }
+      },
+      "created_at": "2019-10-09T14:01:37Z",
+      "metadata": {
+        "system": {
+          "client": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
+          "ip_address": "103.231.232.230",
+          "location": "Bengaluru, KA, India",
+          "latitude": 12.9771,
+          "longitude": 77.5871
+        },
+        "custom": {},
+        "notifications_suppressed_for": [
+          341332039,
+          668998733,
+          671590297,
+          671595387,
+          322825401,
+          420180933,
+          598455867
+        ]
+      }
+    }
+  ],
+  "next_page": null,
+  "previous_page": null,
+  "count": 7
+}
