@@ -1,0 +1,11 @@
+## This is hoby PyQt5 programming.
+
+## Aim:
+Making gui for git basic operations like `status`, `log`, `diff`, `add`, `commit with --amend` and `push`.
+
+This will work only if you are running this file from git repo.
+
+Clone the repo and run `./git_gui.py`
+You can select the git operation in the GUI.
+
+# HAVE FUN and comment me to improve my skills
