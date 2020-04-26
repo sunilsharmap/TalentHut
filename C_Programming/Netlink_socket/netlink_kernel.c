@@ -1,13 +1,13 @@
-/** Code taken from 
+/** Code taken from
   * "https://stackoverflow.com/questions/3299386/how-to-use-netlink-socket-to-communicate-with-a-kernel-module"
   * Details
   * http://opensourceforu.com/2015/08/netlink-a-communication-mechanism-in-linux/
   */
 
 #include <linux/module.h>
-#include <net/sock.h> 
+#include <net/sock.h>
 #include <linux/netlink.h>
-#include <linux/skbuff.h> 
+#include <linux/skbuff.h>
 
 #define NETLINK_USER 31
 
@@ -52,7 +52,7 @@ static int __init hello_init(void)
 	};
 
 	printk("Entering: %s\n", __FUNCTION__);
-	//nl_sk = netlink_kernel_create(&init_net, NETLINK_USER, 0, hello_nl_recv_msg, NULL, THIS_MODULE);
+
 	nl_sk = netlink_kernel_create(&init_net, NETLINK_USER, &cfg);
 	if (!nl_sk) {
 		printk(KERN_ALERT "Error creating socket.\n");
@@ -64,7 +64,7 @@ static int __init hello_init(void)
 
 static void __exit hello_exit(void)
 {
-	printk(KERN_INFO "exiting hello module\n");
+	printk(KERN_INFO "Exiting hello module\n");
 	netlink_kernel_release(nl_sk);
 }
 

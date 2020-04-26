@@ -1,4 +1,4 @@
-/** Code taken from 
+/** Code taken from
  * "https://stackoverflow.com/questions/3299386/how-to-use-netlink-socket-to-communicate-with-a-kernel-module"
  * Details
  * http://opensourceforu.com/2015/08/netlink-a-communication-mechanism-in-linux/
@@ -13,18 +13,21 @@
 
 #define NETLINK_USER 31
 
-#define MAX_PAYLOAD 1024 /* maximum payload size*/
+/* maximum payload size*/
+#define MAX_PAYLOAD 1024
+
 struct sockaddr_nl src_addr, dest_addr;
 struct nlmsghdr *nlh = NULL;
+struct msghdr msg;
 struct iovec iov;
 int sock_fd;
-struct msghdr msg;
 
-int main()
+int main(int argc, char * argv[])
 {
 	sock_fd = socket(PF_NETLINK, SOCK_RAW, NETLINK_USER);
-	if (sock_fd < 0)
+	if (sock_fd < 0) {
 		return -1;
+	}
 
 	memset(&src_addr, 0, sizeof(src_addr));
 	src_addr.nl_family = AF_NETLINK;
@@ -54,10 +57,12 @@ int main()
 
 	printf("Sending message to kernel\n");
 	sendmsg(sock_fd, &msg, 0);
-	printf("Waiting for message from kernel\n");
+	printf("Waiting for message from kernel...\n");
 
 	/* Read message from kernel */
 	recvmsg(sock_fd, &msg, 0);
 	printf("Received message payload: %s\n", (char *)NLMSG_DATA(nlh));
 	close(sock_fd);
+
+	return 0;
 }
