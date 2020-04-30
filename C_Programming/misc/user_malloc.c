@@ -102,32 +102,31 @@ int main(int argc, char *argv[])
 
     char *c_ptr1, *c_ptr2, *c_ptr3, *c_ptr4;
 
-    printf("     Start address of heap	: %p\n", &heap[0]);
+    printf("     Start address of heap  : %p\n", &heap[0]);
 
     init_memory(heap, 1024);
 
     c_ptr1 = (char*) test_malloc(400);
-    printf("%d   c_ptr1 holds address	: %p\tAvailable Memory: %d bytes\n", __LINE__, c_ptr1, (max_memory - (alloc_memory + st_count * 8)));
+    printf("%d   c_ptr1 holds address   : %p\tAvailable Memory: %d bytes\n", __LINE__, c_ptr1, (max_memory - (alloc_memory + st_count * 8)));
 
     c_ptr2 = (char*) test_malloc(200);
-    printf("%d   c_ptr2 holds address	: %p\tAvailable Memory: %d bytes\n", __LINE__, c_ptr2, (max_memory - (alloc_memory + st_count * 8)));
+    printf("%d   c_ptr2 holds address   : %p\tAvailable Memory: %d bytes\n", __LINE__, c_ptr2, (max_memory - (alloc_memory + st_count * 8)));
 
     c_ptr3 = (char*) test_malloc(500);
-    printf("%d   c_ptr3 holds address	: %p\t\tAvailable Memory: %d bytes\n", __LINE__, c_ptr3, (max_memory - (alloc_memory + st_count * 8)));
+    printf("%d   c_ptr3 holds address   : %p\t\tAvailable Memory: %d bytes\n", __LINE__, c_ptr3, (max_memory - (alloc_memory + st_count * 8)));
 
     test_free(c_ptr2);
 
     c_ptr4 = (char*) test_malloc(450);
-    printf("%d   c_ptr4 holds address	: %p\t\tAvailable Memory: %d bytes\n", __LINE__, c_ptr4, (max_memory - (alloc_memory + st_count * 8)));
+    printf("%d   c_ptr4 holds address   : %p\t\tAvailable Memory: %d bytes\n", __LINE__, c_ptr4, (max_memory - (alloc_memory + st_count * 8)));
 
     c_ptr1 = (char*) test_malloc(300);
-    printf("%d   c_ptr1 holds address	: %p\tAvailable Memory: %d bytes\n", __LINE__, c_ptr1, (max_memory - (alloc_memory + st_count * 8)));
+    printf("%d   c_ptr1 holds address   : %p\tAvailable Memory: %d bytes\n", __LINE__, c_ptr1, (max_memory - (alloc_memory + st_count * 8)));
 
     test_free(c_ptr1);
 
     c_ptr2 = (char*) test_malloc(400);
-    printf("%d   c_ptr2 holds address	: %p\t\tAvailable Memory: %d bytes\n", __LINE__, c_ptr2, (max_memory - (alloc_memory + st_count * 8)));
+    printf("%d   c_ptr2 holds address   : %p\t\tAvailable Memory: %d bytes\n", __LINE__, c_ptr2, (max_memory - (alloc_memory + st_count * 8)));
 
     return 0;
 }
-
