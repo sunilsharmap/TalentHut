@@ -1,10 +1,10 @@
 #! /usr/bin/env python3
-################################################################################
+######################################################
 # dice.py
 #
 # author: Sunil Sharma P <sunilsharma.pv@gmail.com>
 #   date: April 28, 2020
-################################################################################
+######################################################
 import sys
 import os
 import random
@@ -13,10 +13,8 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtMultimedia import *
 
-# Need to fix this: Not able to keep inside class
-audioplayer = QMediaPlayer()
 
-class App(QWidget):
+class Dice(QWidget):
     def __init__(self):
         super().__init__()
         self.title = 'Dice Rolling - Sunil Sharma P'
@@ -35,11 +33,24 @@ class App(QWidget):
         self.blue_pbar = QProgressBar(self)
         self.yellow_pbar = QProgressBar(self)
         self.pbars = [self.green_pbar, self.red_pbar, self.blue_pbar, self.yellow_pbar]
-        self.turn = 0;
+        self.turn = 0
         self.g_score = 0
         self.r_score = 0
         self.b_score = 0
         self.y_score = 0
+
+        # Media player setup Win
+        self.win_tone = QMediaPlayer()
+        self.path = os.getcwd()
+        self.win_media = QUrl.fromLocalFile(self.path + '/resources/music.mp3')
+        self.win_content = QMediaContent(self.win_media)
+        self.win_tone.setMedia(self.win_content)
+
+        # Media player setup Dice Roll
+        self.mouse_tone = QMediaPlayer()
+        self.mouse_media = QUrl.fromLocalFile(self.path + '/resources/dice_roll.mp3')
+        self.mouse_content = QMediaContent(self.mouse_media)
+        self.mouse_tone.setMedia(self.mouse_content)
 
         self.center()
         self.initUI()
@@ -75,12 +86,11 @@ class App(QWidget):
         self.yellow_pbar.setStyleSheet("QProgressBar::chunk {background : #ffff1a }")
         self.yellow_pbar.setGeometry(25, 450, 750, 50)
 
-    def music_player(self):
-        path = os.getcwd()
-        media = QUrl.fromLocalFile(path + '/resources/music.mp3')
-        content = QMediaContent(media)
-        audioplayer.setMedia(content)
-        audioplayer.play()
+    def win_music_player(self):
+        self.win_tone.play()
+
+    def mouse_music_player(self):
+        self.mouse_tone.play()
 
     def next_player(self):
         if (self.turn == len(self.player) - 1) or (self.turn == len(self.player)):
@@ -92,62 +102,63 @@ class App(QWidget):
         if scr == 100 and self.Winner == False:
             self.Winner = True
             self.pbars[self.turn].setFormat("*** Winner ***")
-            del(self.player[self.turn])
-            del(self.pbars[self.turn])
+            del (self.player[self.turn])
+            del (self.pbars[self.turn])
         elif scr == 100 and self.Runner == False:
             self.Runner = True
             self.pbars[self.turn].setFormat("*** Runner ***")
-            del(self.player[self.turn])
-            del(self.pbars[self.turn])
+            del (self.player[self.turn])
+            del (self.pbars[self.turn])
         elif scr == 100 and self.Third == False:
             self.Third = True
             self.pbars[self.turn].setFormat("*** 3rd Place ***")
-            del(self.player[self.turn])
-            del(self.pbars[self.turn])
+            del (self.player[self.turn])
+            del (self.pbars[self.turn])
 
             if 1 == len(self.player):
                 self.pbars[0].setFormat("*** Looser ***")
 
             self.btn_dice.setIcon(QIcon('resources/rgby.png'))
             self.btn_dice.setDisabled(True)
-            self.music_player()
+            self.win_music_player()
 
     def on_click_dice(self):
+        self.mouse_music_player()
         i = random.randint(1, 6)
         score = 0
         if self.player[self.turn] == 'green':
             self.btn_dice.setIcon(QIcon('resources/g{}.png'.format(i)))
             self.g_score += i
-            if self.g_score <= 100 :
+            if self.g_score <= 100:
                 self.green_pbar.setValue(self.g_score)
-            else :
+            else:
                 self.g_score -= i
             score = self.g_score
 
         if self.player[self.turn] == 'red':
             self.btn_dice.setIcon(QIcon('resources/r{}.png'.format(i)))
             self.r_score += i
-            if self.r_score <= 100 :
+            if self.r_score <= 100:
                 self.red_pbar.setValue(self.r_score)
-            else :
+            else:
                 self.r_score -= i
             score = self.r_score
 
         if self.player[self.turn] == 'blue':
             self.btn_dice.setIcon(QIcon('resources/b{}.png'.format(i)))
             self.b_score += i
-            if self.b_score <= 100 :
+            if self.b_score <= 100:
                 self.blue_pbar.setValue(self.b_score)
-            else :
+            else:
                 self.b_score -= i
             score = self.b_score
 
         if self.player[self.turn] == 'yellow':
             self.btn_dice.setIcon(QIcon('resources/y{}.png'.format(i)))
             self.y_score += i
-            if self.y_score <= 100 :
+            if self.y_score <= 100:
                 self.yellow_pbar.setValue(self.y_score)
-            else :
+            else:
                 self.y_score -= i
             score = self.y_score
         if i < 6:
@@ -160,7 +171,9 @@ class App(QWidget):
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = App()
+    ex = Dice()
     sys.exit(app.exec_())
+
