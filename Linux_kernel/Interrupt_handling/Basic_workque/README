@@ -1,0 +1,14 @@
+Simple Interrupt workque handling Linux driver
+
+By pressing any key on keyboard generates an innterrupt.
+When-ever interrupt generated, interrupt hadler schedules a workque,
+which populates data on buffer. The buffer will be read
+from cat utility from the driver
+
+~$ make clean                         - clean the build
+~$ make all                           - build the module
+~$ sudo insmod basic_workque.ko       - insert the module to runnig kernel
+~$ dmesg                              - check kernel log
+~$ lsmod | grep basic*                - check the inserted module
+~$ sudo cat /dev/basic_workque_device - read the driver
+~$ sudo rmmod basic_workque           - remove the module from kernel
