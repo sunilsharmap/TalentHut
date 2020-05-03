@@ -105,7 +105,7 @@ irqreturn_t basic_workque_irq_handler(int irq_number /* This will be first param
 {
     printk("\nInside the %s() function\n", __FUNCTION__);
 
-    /* Schedule/Differ the work */
+    /* Schedule/Deffer the work */
     schedule_work(&basic_work);
 
     return IRQ_HANDLED;
@@ -220,4 +220,3 @@ void basic_workque_exit(void)
 
 module_init( basic_workque_init);
 module_exit( basic_workque_exit);
-
