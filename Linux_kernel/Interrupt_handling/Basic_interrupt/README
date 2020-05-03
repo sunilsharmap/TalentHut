@@ -1,0 +1,13 @@
+Simple Interrupt handling Linux driver
+
+By pressing any key on keyboard generates an innterrupt.
+When-ever interrupt generated, interrupt hadler populates data on buffer,
+which will be read from cat utility from the driver
+
+~$ make clean                                - clean the build
+~$ make all                                  - build the module
+~$ sudo insmod basic_interrupt.ko            - insert the module to runnig kernel
+~$ dmesg                                     - check kernel log
+~$ lsmod | grep basic*                       - check the inserted module
+~$ sudo cat /dev/sharma_interrupt_device     - read the driver
+~$ sudo rmmod basic_interrupt                - remove the module from kernel
