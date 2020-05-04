@@ -1,8 +1,9 @@
 Kernel module to demonstrate ioctl useage in Kernel space and User space
 
-do a make ro build the module
+do a `make` to build the module
 
-sudo ./user_ioctl.out    - fetch the initial values
-sudo ./user_ioctl.out -g - get the values from kernel
-sudo ./user_ioctl.out -s - set the values for modules
-sudo ./user_ioctl.out -c - clear the values and set it to 0
+sudo insmod kernel_ioctl.ko
+sudo ./user_ioctl.out      -- fetch the initial values
+sudo ./user_ioctl.out -g   -- get the values from kernel
+sudo ./user_ioctl.out -s   -- set the values for modules
+sudo ./user_ioctl.out -c   -- clear the values and set it to 0
