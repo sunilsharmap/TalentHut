@@ -1,5 +1,5 @@
 /*
- * kernel_ioctl.c
+ * netlink_kernel.c
  *
  * Description: https://stackoverflow.com/questions/3299386/how-to-use-netlink-socket-to-communicate-with-a-kernel-module
  *              http://opensourceforu.com/2015/08/netlink-a-communication-mechanism-in-linux/
