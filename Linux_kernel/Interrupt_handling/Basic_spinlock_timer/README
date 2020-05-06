@@ -6,8 +6,8 @@ registered function will be invoked.
 
 ~$ make clean                               - clean the build
 ~$ make all                                 - build the module
-~$ sudo insmod basic_spinlock_timer.ko      - insert the module to runnig kernel
+~$ sudo insmod basic_spinlock_timer.ko      - insert the module to running kernel
 ~$ dmesg                                    - check kernel log
 ~$ lsmod | grep basic*                      - check the inserted module
 ~$ sudo cat /dev/basic_spinlock_time_device - read the driver
-~$ sudo rmmod basic_spinlock_timer          - remove the module from kernel
+~$ sudo rmmod basic_spinlock_timer          - remove the module from running kernel

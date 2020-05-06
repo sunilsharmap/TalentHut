@@ -7,8 +7,8 @@ Buffer will be read from cat utility from the driver
 
 ~$ make clean                           - clean the build
 ~$ make all                             - build the module
-~$ sudo insmod basic_tasklet.ko         - insert the module to runnig kernel
+~$ sudo insmod basic_tasklet.ko         - insert the module to running kernel
 ~$ dmesg                                - check kernel log
 ~$ lsmod | grep basic*                  - check the inserted module
 ~$ sudo cat /dev/basic_tasklet_device   - read the driver
-~$ sudo rmmod basic_tasklet             - remove the module from kernel
+~$ sudo rmmod basic_tasklet             - remove the module from running kernel
