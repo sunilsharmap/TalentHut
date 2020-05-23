@@ -21,7 +21,6 @@ void help(void)
 	printf("-i  input file\n");
 	printf("-o  output file\n");
 	printf("-x  extra option\n\n");
-	printf("Please see `man 3 getopt` for more details\n\n");
 }
 
 
