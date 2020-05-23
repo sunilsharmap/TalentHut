@@ -19,7 +19,7 @@ void help(void)
 	printf("-h  show this help\n");
 	printf("-i  input file\n");
 	printf("-o  output file\n");
-	printf("-u  user name\n\n");
+	printf("-x  extra option\n\n");
 	printf("Please see `man 3 getopt` for more details\n\n");
 }
 
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 	 * u - user        - requires no argument
 	 * h - help
 	 */
-	while((opt = getopt(argc, argv, "i:o:uh")) != -1) {
+	while((opt = getopt(argc, argv, "i:o:xh")) != -1) {
 		switch(opt) {
 		case 'i':
 			printf("Option found: %c\n", opt);
@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 			printf("Option found: %c\n", opt);
 			printf("Output file given is \"%s\"\n\n", optarg);
 			break;
-		case 'u':
+		case 'x':
 			printf("Option found: %c\n", opt);
 			printf("Here we can do some useful work\n\n");
 			break;
