@@ -2,6 +2,7 @@
  * getopt.c
  *
  * Description: Program to illustrate the getopt() function in C
+ *              Please see `man 3 getopt` for more details
  *
  *  Created on: 23-May-2020
  *      Author: Sunil Sharma P <sunilsharma.pv@gmail.com>
