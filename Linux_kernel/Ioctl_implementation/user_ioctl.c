@@ -2,7 +2,7 @@
  * user_ioctl.c
  *
  * Description: http://opensourceforu.com/2011/08/io-control-in-linux/
- * 				Anil Kumar Pugalia
+ *              Anil Kumar Pugalia
  *
  *  Created on: 29-Apr-2020
  *      Author: Sunil Sharma P <sunilsharma.pv@gmail.com>
