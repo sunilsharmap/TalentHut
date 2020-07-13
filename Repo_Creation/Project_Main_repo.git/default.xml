@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<manifest>
+    <include name="project-1.xml"/>
+	<include name="project-2.xml"/>
+</manifest>

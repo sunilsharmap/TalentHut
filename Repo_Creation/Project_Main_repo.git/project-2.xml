@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<manifest>
+	<remote name="P2" fetch="/home/sharma/Documents/TalentHut/Repo_Creation"/>
+	<default revision="refs/heads/master" remote="P2" sync-j="4"/>
+	<project name="proj-2" remote="P2" path="proj-dir-2"/>
+</manifest>
