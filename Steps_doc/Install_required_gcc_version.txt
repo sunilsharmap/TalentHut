@@ -1,0 +1,23 @@
+# Installing required version of gcc/g++
+
+# Get the source code from repo, replace the version you want
+wget https://ftpmirror.gnu.org/gcc/gcc-7.2.0/gcc-7.2.0.tar.gz
+
+# Extract the downloaded file
+tar xf gcc-7.2.0.tar.gz
+
+mkdir build
+cd gcc-7.2.0
+
+# Install the prerequisite
+./contrib/download_prerequisites
+
+cd ../build
+
+# Building gcc source code(we can change the --prefix to change the installation path)
+../gcc-7.2.0/configure -v --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --prefix=/usr/local/gcc-7.2 --enable-checking=release --enable-languages=c,c++,fortran --disable-multilib --program-suffix=-7.2
+
+make -j8
+
+# Installing gcc to system
+sudo make install
