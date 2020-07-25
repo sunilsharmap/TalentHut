@@ -21,3 +21,9 @@ make -j8
 
 # Installing gcc to system
 sudo make install
+
+# Update the Bashrc
+vi ~/.bashrc
+
+export export PATH=/usr/local/gcc-7.2/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/gcc-7.2/lib64:$LD_LIBRARY_PATH
