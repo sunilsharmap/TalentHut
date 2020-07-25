@@ -1,0 +1,52 @@
+How to Upgrade to Python 3.7 on Ubuntu 18.04/18.10
+
+ref: https://tech.serhatteker.com/post/2019-09/upgrade-python37-on-ubuntu18/
+
+Intro
+In this article, we upgrade to python 3.7 from python 3.6 and configure it as the default version of python.
+
+I was just trying to upgrade my python and I find it a little bit hard to do. Python 3.6 is the default version that comes with Ubuntu 18.04/18.10 But the latest version is Python 3.8. So it would be better to upgrade one major version.
+
+So lets start:
+
+Step 0: Check the current python version
+Run below command to test the current version installed of python.
+
+$ python3 --version
+Output will be like:
+
+python 3.6.8
+Step 1: Install python3.7
+Install python by typing:
+
+$ sudo apt update -y
+$ sudo apt install python3.7
+Step 2: Add python 3.6 & python 3.7 to update-alternatives
+$ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+$ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
+Step 3: Update python 3 to point to python 3.7
+By default, Python 3.6 is pointed to Python 3. That means when we run python3 it will execute as python3.6 binary but we want to execute this as python3.7.
+
+Type this command to configure python3:
+
+$ sudo update-alternatives --config python3
+user@ubuntu1804:~$ sudo update-alternatives --config python3
+There are 2 choices for the alternative python3 (providing /usr/bin/python3).
+
+  Selection    Path                Priority   Status
+------------------------------------------------------------
+* 0            /usr/bin/python3.6   2         auto mode
+  1            /usr/bin/python3.6   1         manual mode
+  2            /usr/bin/python3.7   2         manual mode
+
+Press <enter> to keep the current choice[*], or type selection number:
+You should get the above output. Now type 2 and hit enter for Python 3.7. Remember the selection number may differ so choose the selection number which is for Python 3.7.
+
+Alternative update python 3 to point to python3.7
+/usr/bin/python3 is just a symlink. Delete it and make a new symlink to python3.7:
+
+$ sudo rm /usr/bin/python3
+$ sudo ln -s python3.7 /usr/bin/python3
+Step 4: Test the new version of python3
+$ python3 -V
+All done!
