@@ -20,8 +20,3 @@ set shiftwidth=4
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 ```
-
-### Remove trailing whitespece on file save
-```
-autocmd BufWritePre * %s/\s\+$//e
-```
