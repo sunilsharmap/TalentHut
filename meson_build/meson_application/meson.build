@@ -1,6 +1,6 @@
 project('application', ['c'],
   default_options: ['werror=true', 'buildtype=debugoptimized'],
-  version: '1.0.0',
+  version: '0.0.1',
 )
 
 dependency_dep = dependency('meson_dependency',
