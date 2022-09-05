@@ -11,7 +11,7 @@ srcs = files(
   'src/main.c',
 )
 
-executable('application', sources: 'src/main.c',
+executable('application', srcs,
   dependencies: [dependency_dep],
   install: true,
 )
