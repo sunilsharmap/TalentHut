@@ -14,3 +14,6 @@ int main()
 	printf("After Reverse  = %d", reverse);
 	return 0;
 }
+
+
+// Output: 987654321
