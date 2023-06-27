@@ -68,7 +68,7 @@ static const char *main_summary =
         "  mul      Multiplication of two numbers\n"
         "  div      Division of two numbers\n"
         "\n"
-        "Run 'client.exe <command> --help' for command specific help";
+        "Run 'math_cli <command> --help' for command specific help";
 
 static GOptionEntry common_options[] = {
         {"help", 'h', G_OPTION_FLAG_NONE, G_OPTION_ARG_NONE, &help,
