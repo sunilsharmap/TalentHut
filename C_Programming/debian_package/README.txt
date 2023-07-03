@@ -35,7 +35,7 @@
 
 * Installing .deb package:
 	There are two ways to install .deb package:
-	1. Double clock on helloworld-1.0_amd64.deb file.
+	1. Double click on helloworld-1.0_amd64.deb file.
 	   Ubuntu Software will open displaying this package information.
 	   There will be `Install` button, clicking it will install `Helloworld` in /usr/bin
 

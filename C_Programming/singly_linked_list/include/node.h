@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include "extern.h"
 
 /* Ref: https://www.geeksforgeeks.org/linked-list-set-1-introduction/ */
 
@@ -36,7 +37,7 @@ typedef struct Node {
  *
  * @return void
  */
-void insert_node_at_beginning(node_t ** head, int32_t data);
+LIB_EXTERN void insert_node_at_beginning(node_t ** head, int32_t data);
 
 /**
  * @brief Insert a node at the end of the list
@@ -48,7 +49,7 @@ void insert_node_at_beginning(node_t ** head, int32_t data);
  *
  * @return void
  */
-void insert_node_at_end(node_t ** head, int32_t data);
+LIB_EXTERN void insert_node_at_end(node_t ** head, int32_t data);
 
 /**
  * @brief length of list i.e number of nodes in the list
@@ -57,7 +58,7 @@ void insert_node_at_end(node_t ** head, int32_t data);
  *
  * @return Number of nodes in the list
  */
-uint32_t length_of_list(node_t * head);
+LIB_EXTERN uint32_t length_of_list(node_t * head);
 
 /**
  * @brief print the data in the list from start to end
@@ -66,7 +67,7 @@ uint32_t length_of_list(node_t * head);
  *
  * @retrun void
  */
-void print_list(node_t * head);
+LIB_EXTERN void print_list(node_t * head);
 
 /**
  * @brief find the element in the list
@@ -76,7 +77,7 @@ void print_list(node_t * head);
  *
  * @return the position of the data in the list, 0 if not present
  */
-uint32_t find_element_in_list(node_t * head, int32_t data);
+LIB_EXTERN uint32_t find_element_in_list(node_t * head, int32_t data);
 
 /**
  * @brief reverse the list
@@ -85,7 +86,7 @@ uint32_t find_element_in_list(node_t * head, int32_t data);
  *
  * @retrun void
  */
-void reverse_list(node_t ** head);
+LIB_EXTERN void reverse_list(node_t ** head);
 
 /**
  * @brief delete the complete list
@@ -94,7 +95,7 @@ void reverse_list(node_t ** head);
  *
  * @return void
  */
-void recursive_reverse_list(node_t ** head);
+LIB_EXTERN void recursive_reverse_list(node_t ** head);
 
 /**
  * @brief delete a given node from the list
@@ -104,7 +105,7 @@ void recursive_reverse_list(node_t ** head);
  *
  * @retrun 0 on success, -1 on key not in list
  */
-int32_t delete_node_in_list(node_t ** head, int32_t key);
+LIB_EXTERN int32_t delete_node_in_list(node_t ** head, int32_t key);
 
 /**
  * @brief delete the complete list
@@ -113,6 +114,6 @@ int32_t delete_node_in_list(node_t ** head, int32_t key);
  *
  * @return void
  */
-void delete_list(node_t ** head);
+LIB_EXTERN void delete_list(node_t ** head);
 
 #endif /* NODE_H_ */
