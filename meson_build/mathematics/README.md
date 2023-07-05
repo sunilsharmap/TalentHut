@@ -19,6 +19,6 @@ is `ninja`, we can pass other options through `--backend` flag
 to the `binaries` directory with bin, lib, share ... etc sub directories.
 - `meson test -C build` - this will run all the tests i.e. dependency tests, library tests.
 
-here `build`, `binaries` are the arbitrary directory names.
+here `build`, `binaries` are the arbitrary directory names, you can use any names of your interest.
 
 **Note**: See the meson documentation for more information on the commands.
