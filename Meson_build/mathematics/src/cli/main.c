@@ -2,6 +2,8 @@
 #include <glib/glib.h>
 #include <stdbool.h>
 
+static gchar* executable;
+
 static gboolean help;
 static int num1 = 0;
 static int num2 = 0;
@@ -68,7 +70,7 @@ static const char *main_summary =
         "  mul      Multiplication of two numbers\n"
         "  div      Division of two numbers\n"
         "\n"
-        "Run 'math_cli <command> --help' for command specific help";
+        "Run '%s <command> --help' for command specific help";
 
 static GOptionEntry common_options[] = {
         {"help", 'h', G_OPTION_FLAG_NONE, G_OPTION_ARG_NONE, &help,
@@ -77,7 +79,7 @@ static GOptionEntry common_options[] = {
 };
 
 static GOptionContext *common_option_context(const char *parameter_string,
-											 const char *summary, bool strict)
+                                             const char *summary, bool strict)
 {
     GOptionContext *opt_ctx;
 
@@ -125,14 +127,14 @@ static int add(int argc, char **argv)
     }
 
     if (!parse_options(opt_ctx, &argc, &argv, &rc)) {
-		goto cleanup;
-	}
+        goto cleanup;
+    }
 
-	g_printf("%d + %d = %d\n", num1, num2, addition(num1, num2));
+    g_printf("%d + %d = %d\n", num1, num2, addition(num1, num2));
 
 cleanup:
-	g_option_context_free(opt_ctx);
-	return rc;
+    g_option_context_free(opt_ctx);
+    return rc;
 }
 
 /* Subtraction section */
@@ -168,14 +170,14 @@ static int sub(int argc, char **argv)
     }
 
     if (!parse_options(opt_ctx, &argc, &argv, &rc)) {
-		goto cleanup;
-	}
+        goto cleanup;
+    }
 
-	g_printf("%d - %d = %d\n", num1, num2, subtraction(num1, num2));
+    g_printf("%d - %d = %d\n", num1, num2, subtraction(num1, num2));
 
 cleanup:
-	g_option_context_free(opt_ctx);
-	return rc;
+    g_option_context_free(opt_ctx);
+    return rc;
 }
 
 /* Multiplication section */
@@ -211,14 +213,14 @@ static int mul(int argc, char **argv)
     }
 
     if (!parse_options(opt_ctx, &argc, &argv, &rc)) {
-		goto cleanup;
-	}
+        goto cleanup;
+    }
 
-	g_printf("%d * %d = %d\n", num1, num2, multiplication(num1, num2));
+    g_printf("%d * %d = %d\n", num1, num2, multiplication(num1, num2));
 
 cleanup:
-	g_option_context_free(opt_ctx);
-	return rc;
+    g_option_context_free(opt_ctx);
+    return rc;
 }
 
 /* Division section */
@@ -261,8 +263,8 @@ static int div(int argc, char **argv)
     }
 
     if (!parse_options(opt_ctx, &argc, &argv, &rc)) {
-		goto cleanup;
-	}
+        goto cleanup;
+    }
 
     if(remainder) {
         g_printf("%d %% %d = %d\n", num1, num2, division_r(num1, num2));
@@ -277,26 +279,32 @@ static int div(int argc, char **argv)
         g_printf("%d %% %d = %d\n", num1, num2, division_r(num1, num2));
     }
 cleanup:
-	g_option_context_free(opt_ctx);
-	return rc;
+    g_option_context_free(opt_ctx);
+    return rc;
 }
 
 /* main functin section */
 int main(int argc, char **argv)
 {
     GError *error = NULL;
+    GString *str = NULL;
     GOptionContext *opt_ctx = NULL;
-	int rc = 0;
+    int rc = 0;
 
-	if (argc == 1) {
-        gchar **splits = g_strsplit(argv[0], G_DIR_SEPARATOR_S, -1);
+    gchar **splits = g_strsplit(argv[0], G_DIR_SEPARATOR_S, -1);
+    executable = g_strdup(splits[g_strv_length(splits)-1]);
+    g_strfreev(splits);
+
+    if (argc == 1) {
         print_error("ERROR: No input specified. See '%s --help'",
-                    splits[g_strv_length(splits)-1]);
-        g_strfreev(splits);
+                    executable);
         goto cleanup;
     }
 
-    opt_ctx = common_option_context(main_parameters, main_summary, true);
+    str = g_string_new("");
+    g_string_printf(str, main_summary, executable);
+    opt_ctx = common_option_context(main_parameters, str->str, true);
+    g_string_free(str, true);
 
     if (!parse_options(opt_ctx, &argc, &argv, &rc))
         goto cleanup;
@@ -317,7 +325,7 @@ int main(int argc, char **argv)
     } else if (!g_strcmp0(argv[0], "mul")) {
         rc = mul(argc, argv);
     } else if (!g_strcmp0(argv[0], "div")) {
-		rc = div(argc, argv);
+        rc = div(argc, argv);
     } else {
         print_error("ERROR: unrecognized command '%s'", argv[0]);
         rc = -1;
@@ -328,5 +336,8 @@ cleanup:
     if(opt_ctx) {
         g_option_context_free(opt_ctx);
     }
-	return rc;
+
+    g_free(executable);
+
+    return rc;
 }
