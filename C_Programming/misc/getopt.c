@@ -17,7 +17,7 @@
 
 void help(char *app)
 {
-        printf("\nUsage: %s [-u] [-i inputfile] [-o outputfile]\n\n", app);
+        printf("\nUsage: %s [-i inputfile] [-o outputfile] [-x] [-h] [-v]\n\n", app);
         printf("-h  show this help\n");
         printf("-i  input file\n");
         printf("-o  output file\n");
@@ -55,9 +55,15 @@ int main(int argc, char *argv[])
          *
          * Here the optstring is "i:ou:"
          * i - input file  - requires argument
-         * o - output file - requires argument
-         * u - user        - requires no argument
+         * o - output file - requires no argument
+         * u - user        - requires argument
          * h - help
+         *
+         * This means, if argument is expected for the option, then give `:` after the character.
+         * Here `i:` -> i requires argument
+         *      `o`  -> o no argument required
+         *      `u:' -> u requires argument
+         * we need to call the app like: app.out -i <input file> -o -u <user name>
          */
         while((opt = getopt(argc, argv, "i:o:xhv")) != -1) {
                 switch(opt) {
