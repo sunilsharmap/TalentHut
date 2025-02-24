@@ -1,0 +1,17 @@
+
+---------- [2025-02-25 07:52:10] ----------
+[2025-02-25 07:52:10] [I] Info level logging at line 6
+[2025-02-25 07:52:10] [W] warning message on function main()
+[2025-02-25 07:52:10] [E] error happenning on Tue Feb 25 07:51:33 2025
+[2025-02-25 07:52:10] [C] critical failure happeded at 9
+[2025-02-25 07:52:10] [F] fatal failure at line 10 on Tue Feb 25 07:51:33 2025 from main()
+[2025-02-25 07:52:10] [W] warning message on function main()
+[2025-02-25 07:52:10] [E] error happenning on Tue Feb 25 07:51:33 2025
+[2025-02-25 07:52:10] [C] critical failure happeded at 17
+[2025-02-25 07:52:10] [F] fatal failure at line 18 on Tue Feb 25 07:51:33 2025 from main()
+[2025-02-25 07:52:10] [D] Debug level logging
+[2025-02-25 07:52:10] [I] Info level logging at line 23
+[2025-02-25 07:52:10] [W] warning message on function main()
+[2025-02-25 07:52:10] [E] error happenning on Tue Feb 25 07:51:33 2025
+[2025-02-25 07:52:10] [C] critical failure happeded at 26
+[2025-02-25 07:52:10] [F] fatal failure at line 27 on Tue Feb 25 07:51:33 2025 from main()
