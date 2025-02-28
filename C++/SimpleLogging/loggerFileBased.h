@@ -5,12 +5,6 @@
 #include <string>
 #include <filesystem>
 
-#ifdef _WIN32
-#define pathsep = '\\';
-#elif
-#define pathsep = '/'
-#endif
-
 using namespace std;
 
 class LoggerFileBased {
@@ -21,12 +15,14 @@ private:
     string filename_;
 
     /**
-     * @brief Logger writer of level `loglevel_` to filename `filename_` with date time and log level indication
+     * @brief Logger writer will check the lelel file exists in the same directory of the `filename_`,
+     * if yes, then only the log is logged. else skips. This will help where we dont have loglevel setting
+     * possibility, then we can get more logs by creating a file of "DEBUG" or "INFO" etc....
      * ex: [2025-02-24 10:46:13] [I] Info level logging at line 6
      *     [timestamp] [Level] <message>
-     * @param[IN] level
-     * @param[IN] format
-     * @param[IN] args
+     * @param level [in]
+     * @param format [in]
+     * @param args [in]
      */
     void log(string level, const char *format, va_list args) {
         // Check level file exist, then only log the level logs to the logger
@@ -35,7 +31,7 @@ private:
         filesystem::path _levelfile(level);
         _levelfile = _dirName / _levelfile;
         if (!filesystem::exists(_levelfile)) {
-            // level file not exist, dont log
+            // level file not exist, don't log
             return;
         }
 
