@@ -1,7 +1,7 @@
 /*
     Reference: https://github.com/danielblagy/Yelloger/tree/master
 
-    This is a `Singleton` header only logger can be used for logging. Go through
+    This is a `Singleton` header only, thread safe logger can be used for logging. Go through
     Quick Start to know how to use it
 
     ********************
