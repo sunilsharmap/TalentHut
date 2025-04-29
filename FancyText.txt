@@ -1,4 +1,4 @@
-Python pyfiglet takes ASCII text and renders it in ASCII art fonts. visit: http://www.figlet.org/examples.html for more font names.
+Python pyfiglet(https://pypi.org/project/pyfiglet/) takes ASCII text and renders it in ASCII art fonts. visit: http://www.figlet.org/examples.html for more font names.
 Here I listed some interesting fonts: 'standard', 'slant', 'rounded', 'doom', 'big', 'epic', 'jacky', 'bubble', 'banner3', 'doh'
 
 Example code:
