@@ -1,0 +1,77 @@
+#!/usr/bin/env python3
+
+"""
+    `car` is terminal utility for a typo of `cat`, like `sl(Steam Locomotive)` for `ls`.
+    car will run from right screen to left screen. Pressing space-bar will pause the car
+    and repressing will resume it.
+"""
+
+import curses
+import signal
+import time
+import itertools
+
+# Car ASCII art with {w} as a placeholder for wheels
+cars = [
+   r"                  _..-------++._",
+   r"              _.-'/ |      _||  \"--._",
+   r"        __.--'`._/_\j_____/_||___\    `----.",
+   r"   _.--'_____    |          \     _____    /",
+   r" _j    /,---.\   |        =o |   /,---.\   |_",
+   r"[__]==// .-. \\==`===========/==// .-. \\=[__]",
+   r" \       ({w})                       ({w})     /",
+   r"  `-._|\ `-' /|___\_________/___|\ `-' /|_.'",
+   r"        `---'                     `---'"
+]
+
+# Create a spinner cycle for wheels
+wheel_spin = itertools.cycle(["|", "\\", "-", "/"])
+
+pause = False
+
+# Ignore Ctrl+c and Ctrl+Z
+signal.signal(signal.SIGINT, signal.SIG_IGN)
+signal.signal(signal.SIGTSTP, signal.SIG_IGN)
+
+def main(stdscr):
+    global pause
+    curses.curs_set(0)        # Hide cursor
+    stdscr.nodelay(True)      # Non-blocking input
+    stdscr.clear()
+
+    max_y, max_x = stdscr.getmaxyx()
+    car_height = len(cars)
+    car_width = max(len(line) for line in cars)
+
+    y_pos = max_y // 2 - car_height // 2
+    x_pos = max_x
+
+    while x_pos > -car_width:
+        if pause:
+            key = stdscr.getch()
+            if key == ord(' '):
+                if pause:
+                    pause = False
+            continue
+
+        stdscr.clear()
+        wheel_char = next(wheel_spin)  # Get next wheel frame
+        car = [line.format(w=wheel_char) for line in cars]  # Replace {w}
+
+        for i, line in enumerate(car):
+            y = y_pos + i
+            if 0 <= y < max_y and x_pos < max_x:
+                visible_part = line[max(0, -x_pos):max_x - x_pos]
+                if visible_part:
+                    stdscr.addstr(y, max(0, x_pos), visible_part)
+
+        stdscr.refresh()
+        time.sleep(0.05)
+        x_pos -= 1
+
+        key = stdscr.getch()
+        if key == ord(' '):
+            if not pause:
+                pause = True
+
+curses.wrapper(main)
