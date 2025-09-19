@@ -1,0 +1,45 @@
+#!/usr/bin/expect -f
+
+## Set variables
+set timeout 10
+set password "mockpassword"
+
+## Start the mock SSH server
+spawn python3 ./mock_ssh_server.py
+
+## Handle the host verification prompt
+expect -exact "Are you sure you want to continue connecting (yes/no)? :"
+send "yes\r"
+
+## Handle the password prompt
+expect -exact "password: "
+send "$password\r"
+
+## Wait for the shell prompt and Execute a command
+expect -exact "mockuser@mockserver:~$ "
+send "ls -la\r"
+
+## Wait for the shell prompt and Execute a command
+expect -exact "mockuser@mockserver:~$ "
+send "ping -n 10 127.0.0.1\r"
+
+## Wait for the shell prompt and close the session
+expect -exact "mockuser@mockserver:~$ "
+send "close\r"
+
+## Confirm the close of session
+expect -exact "Do you want to close the session (yes/no)?: "
+send "no\r"
+
+## Wait for the shell prompt and close the session
+expect -exact "mockuser@mockserver:~$ "
+send "close\r"
+
+## Confirm the close of session
+expect -exact "Do you want to close the session (yes/no)?: "
+send "yes\r"
+
+## Wait for the process to complete
+expect eof
+
+puts "\nSSH login automation completed successfully!\n"
